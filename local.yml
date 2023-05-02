@@ -8,6 +8,7 @@
         - node
         - zsh
   tasks: 
+  - import_tasks: tasks/i3-setup.yml
   - import_tasks: tasks/node-setup.yml
   - import_tasks: tasks/zsh-setup.yml
   

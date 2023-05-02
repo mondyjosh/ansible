@@ -1,0 +1,6 @@
+- name: Install i3
+  apt:
+    name: ['nodejs', 'npm']
+  tags:
+    - i3
+    

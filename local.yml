@@ -1,14 +1,17 @@
 - hosts: localhost
   become: true
-  pre_tasks:
-    - name: Update cache
-      apt:
-        update_cache: true
-      tags: 
-        - node
-        - zsh
+#  pre_tasks:
+#    - name: Update cache
+#      apt:
+#        update_cache: true
+#      tags: 
+#        - node
+#        - zsh
   tasks: 
-  - import_tasks: tasks/i3-setup.yml
-  - import_tasks: tasks/node-setup.yml
-  - import_tasks: tasks/zsh-setup.yml
-  
+    - import_tasks: tasks/core-setup.yml
+    - import_tasks: tasks/zsh-setup.yml
+    - import_tasks: tasks/nvim-setup.yml
+    #  - include_tasks: "{{ item }}"
+    #    with_fileglob:
+    #      - tasks/*.yml
+

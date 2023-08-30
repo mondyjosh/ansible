@@ -19,4 +19,11 @@
     dest: ~/.oh-my-zsh/plugins/zsh-autosuggestions
   tags:
     - zsh
+# What's the difference between powerline10k and oh-my-zsh? Does powerline10k 
+# depend on oh-my-zsh, or am I installing two things on top of each other 
+# redundantly?
+- name: Install powerline10k
+  ansible.builtin.git:
+    repo: 'https://github.com/romkatv/powerlevel10k'
+    dest: ~/powerlevel10k
 

@@ -6,8 +6,6 @@
   shell: chsh -s $(which zsh)
   tags: 
     - zsh
-# This will fall over if oh-my-zsh is already installed on the machine
-# TODO: add check and handle scenario when oh-my-zsh is already installed
 - name: Install oh-my-zsh if not existing
   shell: >-
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -16,22 +14,29 @@
     creates: ~/.oh-my-zsh
   tags:
     - zsh
-- name: Install zsh-autosuggestions
+    - oh-my-zsh
+- name: Install oh-my-zsh plugin - zsh-autosuggestions
   ansible.builtin.git:
     repo: 'https://github.com/zsh-users/zsh-autosuggestions.git'
-    dest: ~/.oh-my-zsh/plugins/zsh-autosuggestions
+    dest: ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
   tags:
     - zsh
-- name: Install zsh-nvm
+    - oh-my-zsh
+    - plugins
+- name: Install oh-my-zsh plugin - zsh-nvm plugin
   ansible.builtin.git:
     repo: 'https://github.com/lukechilds/zsh-nvm'
-    dest: ~/.oh-my-zsh/plugins/zsh-nvm
+    dest: ~/.oh-my-zsh/custom/plugins/zsh-nvm
   tags:
-      -zsh
-- name: Install powerline10k theme
+    - zsh
+    - oh-my-zsh
+    - plugins
+- name: Install oh-my-zsh theme - powerline10k 
   ansible.builtin.git:
     repo: 'https://github.com/romkatv/powerlevel10k'
     depth: 1
     dest: ~/.oh-my-zsh/custom/themes/powerlevel10k
   tags:
     - zsh
+    - oh-my-zsh
+    - themes

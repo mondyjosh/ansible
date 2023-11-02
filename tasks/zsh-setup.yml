@@ -1,3 +1,8 @@
+- name: Remove oh-my-zsh plugins and themes
+  shell: rm -rf ~/.oh-my-zsh/custom/plugins/* ~/.oh-my-zsh/custom/themes/*
+  tags:
+    - install
+    - zsh
 - name: Install Zsh
   apt: name=zsh
   tags:
@@ -15,27 +20,31 @@
   tags:
     - zsh
     - oh-my-zsh
+# git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 - name: Install oh-my-zsh plugin - zsh-autosuggestions
   ansible.builtin.git:
     repo: 'https://github.com/zsh-users/zsh-autosuggestions.git'
-    dest: ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+    dest: "{{ lookup('env', 'HOME') }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
   tags:
     - zsh
     - oh-my-zsh
     - plugins
+    
+# git clone https://github.com/lukechilds/zsh-nvm ~/.oh-my-zsh/custom/plugins/zsh-nvm
 - name: Install oh-my-zsh plugin - zsh-nvm plugin
   ansible.builtin.git:
-    repo: 'https://github.com/lukechilds/zsh-nvm'
-    dest: ~/.oh-my-zsh/custom/plugins/zsh-nvm
+    repo: 'https://github.com/lukechilds/zsh-nvm.git'
+    dest: "{{ lookup('env', 'HOME') }}/.oh-my-zsh/custom/plugins/zsh-nvm"
   tags:
     - zsh
     - oh-my-zsh
     - plugins
+# git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 - name: Install oh-my-zsh theme - powerline10k 
   ansible.builtin.git:
-    repo: 'https://github.com/romkatv/powerlevel10k'
+    repo: 'https://github.com/romkatv/powerlevel10k.git'
     depth: 1
-    dest: ~/.oh-my-zsh/custom/themes/powerlevel10k
+    dest: "{{ lookup('env', 'HOME') }}/.oh-my-zsh/custom/themes/powerlevel10k"
   tags:
     - zsh
     - oh-my-zsh

@@ -39,13 +39,21 @@
     - zsh
     - oh-my-zsh
     - plugins
-# git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-- name: Install oh-my-zsh theme - powerline10k 
+- name: Install oh-my-zsh theme - spaceship 
   ansible.builtin.git:
-    repo: 'https://github.com/romkatv/powerlevel10k.git'
+    repo: 'https://github.com/spaceship-prompt/spaceship-prompt.git'
     depth: 1
-    dest: "{{ lookup('env', 'HOME') }}/.oh-my-zsh/custom/themes/powerlevel10k"
+    dest: "{{ lookup('env', 'HOME') }}/.oh-my-zsh/custom/themes/spaceship-prompt"
   tags:
     - zsh
     - oh-my-zsh
     - themes
+#- name: Install oh-my-zsh theme - powerline10k 
+#  ansible.builtin.git:
+#    repo: 'https://github.com/romkatv/powerlevel10k.git'
+#    depth: 1
+#    dest: "{{ lookup('env', 'HOME') }}/.oh-my-zsh/custom/themes/powerlevel10k"
+#  tags:
+#    - zsh
+#    - oh-my-zsh
+#    - themes

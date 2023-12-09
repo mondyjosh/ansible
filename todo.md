@@ -4,4 +4,4 @@
 - [ ] Add task to install Atom One terminal
 - [ ] Fix git clone issues
 - [ ] Add Spaceship prompt install
-
+- [ ] Add ZSH syntax highlighting

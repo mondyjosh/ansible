@@ -1,13 +1,10 @@
 - hosts: localhost
   become: true
-  #pre_tasks:
-  #  - name: Update cache
-  #    apt:
-  #      update_cache: true
-  #    tags: 
-  #      - node
-  #      - zsh
-  tasks: 
+  pre_tasks:
+    - name: Update cache
+      apt:
+        update_cache: true
+  tasks:
      - import_tasks: tasks/core-setup.yml
      - import_tasks: tasks/flatpak-setup.yml
      - import_tasks: tasks/i3-setup.yml

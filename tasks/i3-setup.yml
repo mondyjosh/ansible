@@ -1,6 +1,6 @@
 - name: Install i3
   apt:
-    name: i3 
+    name: i3
   tags:
     - i3
-    
+

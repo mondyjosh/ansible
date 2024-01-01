@@ -1,0 +1,32 @@
+- name: Install Discord Flatpak from Flathub
+  community.general.flatpak:
+    name: com.discordapp.Discord
+    state: present
+  tags:
+    - install
+    - flatpak
+    - discord
+- name: Install Signal Desktop Flatpak from Flathub
+  community.general.flatpak:
+    name: org.signal.Signal
+    state: present
+  tags:
+    - install
+    - flatpak
+    - signal
+- name: Install Steam Flatpak from Flathub
+  community.general.flatpak:
+    name: com.valvesoftware.Steam
+    state: present
+  tags:
+    - install
+    - flatpak
+    - steam
+- name: Install Spotify Flatpak from Flathub
+  community.general.flatpak:
+    name:  com.spotify.Client
+    state: present
+  tags:
+    - install
+    - flatpak
+    - spotify

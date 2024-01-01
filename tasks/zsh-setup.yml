@@ -9,56 +9,41 @@
     - zsh
 - name: Change shell to Zsh
   shell: chsh -s $(which zsh)
-  tags: 
+  tags:
     - zsh
 - name: Install oh-my-zsh if not existing
   shell: >-
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    sh -c "$(curl -fsSL
+    https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   args:
     chdir: /opt
     creates: ~/.oh-my-zsh
   tags:
     - zsh
     - oh-my-zsh
-# git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 - name: Install oh-my-zsh plugin - zsh-autosuggestions
   ansible.builtin.git:
     repo: 'https://github.com/zsh-users/zsh-autosuggestions.git'
-    dest: "{{ lookup('env', 'HOME') }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
+    dest: '{{ lookup(''env'', ''HOME'') }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions'
   tags:
     - zsh
     - oh-my-zsh
     - plugins
-    
-# git clone https://github.com/lukechilds/zsh-nvm ~/.oh-my-zsh/custom/plugins/zsh-nvm
 - name: Install oh-my-zsh plugin - zsh-nvm plugin
   ansible.builtin.git:
     repo: 'https://github.com/lukechilds/zsh-nvm.git'
-    dest: "{{ lookup('env', 'HOME') }}/.oh-my-zsh/custom/plugins/zsh-nvm"
+    dest: '{{ lookup(''env'', ''HOME'') }}/.oh-my-zsh/custom/plugins/zsh-nvm'
   tags:
     - zsh
     - oh-my-zsh
     - plugins
-# clone repo:
-# git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
-# Symlink spaceship.zsh-theme to your oh-my-zsh custom themes directory:
-# ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
-# Set ZSH_THEME="spaceship" in your .zshrc.
-- name: Install oh-my-zsh theme - spaceship 
+- name: Install oh-my-zsh theme - spaceship
   ansible.builtin.git:
     repo: 'https://github.com/spaceship-prompt/spaceship-prompt.git'
     depth: 1
-    dest: "{{ lookup('env', 'HOME') }}/.oh-my-zsh/custom/themes/spaceship-prompt"
+    dest: '{{ lookup(''env'', ''HOME'') }}/.oh-my-zsh/custom/themes/spaceship-prompt'
   tags:
     - zsh
     - oh-my-zsh
     - themes
-#- name: Install oh-my-zsh theme - powerline10k 
-#  ansible.builtin.git:
-#    repo: 'https://github.com/romkatv/powerlevel10k.git'
-#    depth: 1
-#    dest: "{{ lookup('env', 'HOME') }}/.oh-my-zsh/custom/themes/powerlevel10k"
-#  tags:
-#    - zsh
-#    - oh-my-zsh
-#    - themes
+

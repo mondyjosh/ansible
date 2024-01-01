@@ -1,12 +1,12 @@
 - hosts: localhost
   become: true
-  #pre_tasks:
-  #  - name: Update cache
-  #    apt:
-  #      update_cache: true
-  #    tags: 
-  #      - node
-  #      - zsh
+  pre_tasks:
+    - name: Update cache
+      apt:
+        update_cache: true
+      tags: 
+        - node
+        - zsh
   tasks: 
      - import_tasks: tasks/core-setup.yml
      - import_tasks: tasks/flatpak-setup.yml
@@ -15,6 +15,7 @@
      - import_tasks: tasks/nvim-setup.yml
      - import_tasks: tasks/productivity-tools.yml
      - import_tasks: tasks/zsh-setup.yml
+     - import_tasks: tasks/fun.yml
 # Below recurses through and works, but I can't specify tags, 
 # so explicit definitions will have to do for now
 #     - include_tasks: "{{ item }}"

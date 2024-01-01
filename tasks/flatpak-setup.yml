@@ -37,15 +37,6 @@
     - install
     - flatpak
     - firefox
-# TODO: Move Discord to "fun" ansible playbook
-- name: Install Discord Flatpak from Flathub
-  community.general.flatpak:
-    name: com.discordapp.Discord
-    state: present
-  tags: 
-    - install
-    - flatpak
-    - discord
 - name: Install Gimp Flatpak from Flathub
   community.general.flatpak:
     name: org.gimp.GIMP
@@ -70,22 +61,6 @@
     - install
     - flatpak
     - obsidian
-- name: Install Signal Desktop Flatpak from Flathub
-  community.general.flatpak:
-    name: org.signal.Signal
-    state: present
-  tags:
-    - install
-    - flatpak
-    - signal
-- name: Install Spotify Flatpak from Flathub
-  community.general.flatpak:
-    name:  com.spotify.Client
-    state: present
-  tags:
-    - install
-    - flatpak
-    - spotify
 - name: Install Thunderbird Flatpak from Flathub
   community.general.flatpak:
     name: org.mozilla.Thunderbird
@@ -102,12 +77,4 @@
     - install
     - flatpak
     - zoom
-# TODO: Move Steam to "fun" ansible playbook
-# - name: Install Steam Flatpak from Flathub
-#   community.general.flatpak:
-#     name: com.valvesoftware.Steam
-#     state: present
-#   tags: 
-#     - install
-#     - flatpak
-#     - steam
+

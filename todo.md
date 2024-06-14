@@ -5,3 +5,4 @@
 - [ ] Fix git clone issues
 - [ ] Add Spaceship prompt install
 - [ ] Add ZSH syntax highlighting
+- [ ] dotnet setup

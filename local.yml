@@ -6,8 +6,7 @@
         update_cache: true
   tasks:
      - import_tasks: tasks/core-setup.yml
-     - import_tasks: tasks/flatpak-setup.yml
-     - import_tasks: tasks/i3-setup.yml
+     - import_tasks: tasks/flatpaks.yml
      - import_tasks: tasks/node-setup.yml
      - import_tasks: tasks/nvim-setup.yml
      - import_tasks: tasks/productivity-tools.yml

@@ -61,6 +61,14 @@
     - install
     - flatpak
     - obsidian
+- name: Install Spotify Flatpak from Flathub
+  community.general.flatpak:
+    name:  com.spotify.Client
+    state: present
+  tags:
+    - install
+    - flatpak
+    - spotify
 - name: Install Thunderbird Flatpak from Flathub
   community.general.flatpak:
     name: org.mozilla.Thunderbird

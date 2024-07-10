@@ -12,6 +12,7 @@
      - import_tasks: tasks/nvim-setup.yml
      - import_tasks: tasks/productivity-tools.yml
      - import_tasks: tasks/zsh-setup.yml
+     
 # Below recurses through and works, but I can't specify tags, 
 # so explicit definitions will have to do for now
 #     - include_tasks: "{{ item }}"

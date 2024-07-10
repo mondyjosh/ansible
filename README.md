@@ -4,7 +4,7 @@ Personal Ansible project to aid in the rapid setup of local systems.
 ## Running the playbook.
 This is the bare minimum, but I eventually want to improve the execution invocation. Stashing here while I'm back-burnering learning Ansible.
 
-Run the following script to execute the `local` playbook, specifying `hosts/local.ini` as the inventory, and prompting for privilege escalation password.
+Run the following script to execute the `local.yml` playbook, specifying `local.ini` as the inventory, and prompting for privilege escalation password.
 
 ```bash
 ansible-playbook local.yml -i local.ini -K

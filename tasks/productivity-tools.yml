@@ -3,16 +3,11 @@
   apt:
     name:
       - tmux
-      - wireshark
       - fzf
       - fd-find
-      - kdenlive
-      - gimp
       - xclip
-      - screenkey
       - tldr
       - ripgrep
-      - shutter
   tags:
     - install
     - productivity

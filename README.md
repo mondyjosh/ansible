@@ -2,9 +2,7 @@
 
 Personal Ansible project to aid in the rapid setup of local systems.
 
-## Running the playbook.
-
-This is the bare minimum, but I eventually want to improve the execution invocation. Stashing here while I'm back-burnering learning Ansible.
+## Running the playbook
 
 Run the following script to execute the `local.yml` playbook, specifying `local.ini` as the inventory, and prompting for privilege escalation password.
 
@@ -14,8 +12,15 @@ ansible-playbook local.yml -i local.ini -K
 
 ## Testing Playbooks
 
-Run `./build-dockers` to build Docker images for developing/testing Ansible playbooks. This helps keep the overall setup/teardown quick so focus can be kept on the Ansible playbooks themselves (and to keep the host system from mutating!).
+Run `./scripts/build-dockers` to build Docker images for developing/testing Ansible playbooks. This helps keep the overall setup/teardown quick so focus can be kept on the Ansible playbooks themselves (_and to keep the host system from mutating!_).
 
 After building the Docker images, use `docker run --rm -it <tag_name> bash` to init a new ephemeral session with the image (New changes - package installs, config changes, etc. - will be reset upon exiting the Docker session, so have fun!)
 
-Refer to [Docker Engine install](https://docs.docker.com/engine/install/) for any Docker troubleshooting.
+## References
+
+- [Ansible Community Documentation](https://docs.ansible.com/) - main documentation portal for Ansible
+    - [Ansible Tips and Tricks](https://docs.ansible.com/ansible/latest/tips_tricks/ansible_tips_tricks.html)
+    - [Handling OS and Distro Differences](https://docs.ansible.com/ansible/latest/tips_tricks/ansible_tips_tricks.html#handling-os-and-distro-differences)
+- [Docker Docs - Install Docker Engine](https://docs.docker.com/engine/install/) - installation docs for Docker
+- [Github - The Primagen/ansible](https://github.com/ThePrimeagen/ansible) - The initial inspiration for this project, especially the Docker image testing environments
+- 

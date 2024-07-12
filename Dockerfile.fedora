@@ -1,7 +1,7 @@
 FROM fedora:latest
 ARG TAGS
 WORKDIR /usr/local/bin
-RUN dnf up -y && dnf install -y @development-tools curl git ansible screenfetch
+RUN dnf up -y && dnf install -y @development-tools curl git ansible neofetch
 COPY . .
 CMD ["sh", "-c", "ansible-playbook $TAGS local.yml"]
 

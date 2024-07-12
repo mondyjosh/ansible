@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-# launch with docker run --rm -it <tag_name> bash
-docker build -f ../Dockerfile.fedora -t new-fedora .
-# docker build -f ../Dockerfile.ubuntu -t new-ubuntu .
-

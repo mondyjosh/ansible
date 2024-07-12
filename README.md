@@ -2,6 +2,10 @@
 
 Personal Ansible project to aid in the rapid setup of local systems.
 
+## Getting Started
+
+Run `./scripts/install-ansible` to ensure that the basic packages (`curl git ansible`) are installed prior to running the playbook. 
+
 ## Running the playbook
 
 Run the following script to execute the `local.yml` playbook, specifying `local.ini` as the inventory, and prompting for privilege escalation password.

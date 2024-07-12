@@ -23,8 +23,8 @@ After building the Docker images, use `docker run --rm -it <tag_name> bash` to i
 ## References
 
 - [Ansible Community Documentation](https://docs.ansible.com/) - main documentation portal for Ansible
-    - [Ansible Tips and Tricks](https://docs.ansible.com/ansible/latest/tips_tricks/ansible_tips_tricks.html)
-    - [Handling OS and Distro Differences](https://docs.ansible.com/ansible/latest/tips_tricks/ansible_tips_tricks.html#handling-os-and-distro-differences)
+  - [Ansible Tips and Tricks](https://docs.ansible.com/ansible/latest/tips_tricks/ansible_tips_tricks.html)
+  - [Handling OS and Distro Differences](https://docs.ansible.com/ansible/latest/tips_tricks/ansible_tips_tricks.html#handling-os-and-distro-differences)
 - [Docker Docs - Install Docker Engine](https://docs.docker.com/engine/install/) - installation docs for Docker
 - [Github - The Primagen/ansible](https://github.com/ThePrimeagen/ansible) - The initial inspiration for this project, especially the Docker image testing environments
-- 
+

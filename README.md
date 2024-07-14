@@ -11,7 +11,7 @@ Run `./scripts/install-ansible` to ensure that the basic packages (`curl git ans
 Run the following script to execute the `local.yml` playbook, specifying `local.ini` as the inventory, and prompting for privilege escalation password.
 
 ```bash
-ansible-playbook local.yml -i local.ini -K
+ansible-playbook local.yml -i localhost.ini -K
 ```
 
 ## Testing Playbooks

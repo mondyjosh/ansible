@@ -4,11 +4,22 @@
     - install
     - zsh
 - name: Install Zsh
-  apt: name=zsh
+  ansible.builtin.package: name=zsh
   tags:
     - zsh
-- name: Change shell to Zsh
-  shell: chsh -s $(which zsh)
+#- name: Set default shell for users
+#  become: true
+#  ansible.builtin.user:
+#    name: "{{ user.username }}"
+#    shell: "{{ zsh_path }}"
+#  with_items: "{{ users }}"
+#  when: "((user.oh_my_zsh | default({})).install | default(oh_my_zsh_install)) | bool"
+#  loop_control:
+#    loop_var: user
+#    label: "{{ user.username }}"
+# TODO: Source zsh_path as variable
+- name: Set zsh as default shell for users
+  shell: chsh -s /bin/zsh
   tags:
     - zsh
 - name: Install oh-my-zsh if not existing
@@ -23,27 +34,26 @@
     - oh-my-zsh
 - name: Install oh-my-zsh plugin - zsh-autosuggestions
   ansible.builtin.git:
-    repo: 'https://github.com/zsh-users/zsh-autosuggestions.git'
-    dest: '{{ lookup(''env'', ''HOME'') }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions'
+    repo: "https://github.com/zsh-users/zsh-autosuggestions.git"
+    dest: "{{ lookup('env', 'HOME') }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
   tags:
     - zsh
     - oh-my-zsh
     - plugins
 - name: Install oh-my-zsh plugin - zsh-nvm plugin
   ansible.builtin.git:
-    repo: 'https://github.com/lukechilds/zsh-nvm.git'
-    dest: '{{ lookup(''env'', ''HOME'') }}/.oh-my-zsh/custom/plugins/zsh-nvm'
+    repo: "https://github.com/lukechilds/zsh-nvm.git"
+    dest: "{{ lookup('env', 'HOME') }}/.oh-my-zsh/custom/plugins/zsh-nvm"
   tags:
     - zsh
     - oh-my-zsh
     - plugins
 - name: Install oh-my-zsh theme - spaceship
   ansible.builtin.git:
-    repo: 'https://github.com/spaceship-prompt/spaceship-prompt.git'
+    repo: "https://github.com/spaceship-prompt/spaceship-prompt.git"
     depth: 1
-    dest: '{{ lookup(''env'', ''HOME'') }}/.oh-my-zsh/custom/themes/spaceship-prompt'
+    dest: "{{ lookup('env', 'HOME') }}/.oh-my-zsh/custom/themes/spaceship-prompt"
   tags:
     - zsh
     - oh-my-zsh
     - themes
-

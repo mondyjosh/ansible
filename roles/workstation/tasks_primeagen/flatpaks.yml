@@ -1,0 +1,121 @@
+- name: Install Flatpak
+  ansible.builtin.apt:
+    name: flatpak
+    state: present
+  tags:
+    - install
+    - flatpak
+- name: Install Flatpak plugin for the Software app
+  ansible.builtin.apt:
+    name: gnome-software-plugin-flatpak
+    state: present
+  tags:
+    - install
+    - flatpak
+- name: Add the Flathub Flatpak repository remote
+  community.general.flatpak_remote:
+    name: flathub
+    state: present
+    flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+  tags:
+    - install
+    - flatpak
+    - flathub
+
+- name: Install Brave browser Flatpak from Flathub
+  community.general.flatpak:
+    name: com.brave.Browser
+    state: present
+  tags: 
+    - install
+    - flatpak
+    - brave
+- name: Install Firefox Flatpak from Flathub
+  community.general.flatpak:
+    name: org.mozilla.firefox
+    state: present
+  tags: 
+    - install
+    - flatpak
+    - firefox
+- name: Install Flameshot from Flathub
+  community.general.flatpak:
+    name: org.flameshot.Flameshot
+    state: present
+  tags: 
+    - install
+    - flatpak
+    - flameshot
+- name: Install Gimp Flatpak from Flathub
+  community.general.flatpak:
+    name: org.gimp.GIMP
+    state: present
+  tags: 
+    - install
+    - flatpak
+    - gimp
+- name: Install KeePassXC Flatpak from Flathub
+  community.general.flatpak:
+    name: org.keepassxc.KeePassXC
+    state: present
+  tags: 
+    - install
+    - flatpak
+    - keepassxc
+- name: Install Kdenlive from Flathub
+  community.general.flatpak:
+    name: org.kde.kdenlive
+    state: present
+  tags: 
+    - install
+    - flatpak
+    - kdenlive
+- name: Install Obsidian Flatpak from Flathub
+  community.general.flatpak:
+    name: md.obsidian.Obsidian
+    state: present
+  tags: 
+    - install
+    - flatpak
+    - obsidian
+- name: Install Postman from Flathub
+  community.general.flatpak:
+    name: com.getpostman.Postman
+    state: present
+  tags: 
+    - install
+    - flatpak
+    - postman
+- name: Install Spotify Flatpak from Flathub
+  community.general.flatpak:
+    name:  com.spotify.Client
+    state: present
+  tags:
+    - install
+    - flatpak
+    - spotify
+- name: Install Thunderbird Flatpak from Flathub
+  community.general.flatpak:
+    name: org.mozilla.Thunderbird
+    state: present
+  tags:
+    - install
+    - flatpak
+    - thunderbird
+- name: Install Wireshark Flatpak from Flathub
+  community.general.flatpak:
+    name: org.wireshark.Wireshark
+    state: present
+  tags:
+    - install
+    - flatpak
+    - wireshark
+- name: Install Zoom Flatpak from Flathub
+  community.general.flatpak:
+    name: us.zoom.Zoom
+    state: present
+  tags:
+    - install
+    - flatpak
+    - zoom
+

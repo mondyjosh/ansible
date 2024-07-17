@@ -1,0 +1,43 @@
+# tasks/main.yml - A list of tasks that the role provides to the play for execution.
+- name: Install Workstation
+  pre_tasks:
+    - ansible.builtin.import_tasks: tasks/pre_tasks.yml
+
+  # TODO: Move tasks to roles via ansible.builtin.include_role
+  tasks:
+    # - name: Install ntpdate
+    #  ansible.builtin.package:
+    #    name: ntdate
+    #    state: present
+
+    # - import_tasks: tasks/core-setup.yml
+    # - import_tasks: tasks/flatpaks.yml
+    # - import_tasks: tasks/node-setup.yml
+    # - import_tasks: tasks/nvim-setup.yml
+    # - import_tasks: tasks/productivity-tools.yml
+    - import_tasks: tasks/zsh-setup.yml
+#- name: Install Discord Flatpak from Flathub
+#  community.general.flatpak:
+#    name: com.discordapp.Discord
+#    state: present
+#  tags:
+#    - install
+#    - flatpak
+#    - discord
+#- name: Install Signal Desktop Flatpak from Flathub
+#  community.general.flatpak:
+#    name: org.signal.Signal
+#    state: present
+#  tags:
+#    - install
+#    - flatpak
+#    - signal
+#- name: Install Steam Flatpak from Flathub
+#  community.general.flatpak:
+#    name: com.valvesoftware.Steam
+#    state: present
+#  tags:
+#    - install
+#    - flatpak
+#    - steam
+

@@ -1,0 +1,53 @@
+  # - import_tasks: tasks/core-setup.yml
+  # - import_tasks: tasks/flatpaks.yml
+  # - import_tasks: tasks/node-setup.yml
+  # - import_tasks: tasks/nvim-setup.yml
+  # - import_tasks: tasks/productivity-tools.yml
+  
+- name: Install and Configure Zsh
+  ansible.builtin.include_tasks: tasks/zsh-setup.yml
+  args:
+    apply:
+      tags:
+        - install
+        - zsh
+  tags:
+    - always
+
+- name: Install and Configure Neovim
+  ansible.builtin.include_tasks: tasks/nvim-setup.yml
+  args:
+    apply:
+      tags:
+        - install
+        - nvim
+  tags:
+    - always
+
+
+  
+#- name: Install Discord Flatpak from Flathub
+#  community.general.flatpak:
+#    name: com.discordapp.Discord
+#    state: present
+#  tags:
+#    - install
+#    - flatpak
+#    - discord
+#- name: Install Signal Desktop Flatpak from Flathub
+#  community.general.flatpak:
+#    name: org.signal.Signal
+#    state: present
+#  tags:
+#    - install
+#    - flatpak
+#    - signal
+#- name: Install Steam Flatpak from Flathub
+#  community.general.flatpak:
+#    name: com.valvesoftware.Steam
+#    state: present
+#  tags:
+#    - install
+#    - flatpak
+#    - steam
+

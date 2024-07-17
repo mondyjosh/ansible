@@ -1,0 +1,14 @@
+- name: Install productivity packages
+  become: true
+  apt:
+    name:
+      - tmux
+      - fzf
+      - fd-find
+      - xclip
+      - tldr
+      - ripgrep
+  tags:
+    - install
+    - productivity
+

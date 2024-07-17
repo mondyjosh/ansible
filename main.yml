@@ -1,0 +1,20 @@
+- name: Workstation Setup - mondyjosh
+  hosts: localhost
+  connection: local
+  become: true
+
+#  vars_prompt:
+#    - name: include_playstation
+#      prompt: Include playstation role?
+
+  pre_tasks:
+    - name: Execute Pre-Tasks
+      ansible.builtin.include_tasks: roles/pre_tasks.yml
+
+  #  roles:
+  #    - workstation
+  roles:
+    - role: workstation
+#    - role: playstation
+#      when: include_playstation == "y"
+

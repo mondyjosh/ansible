@@ -5,7 +5,16 @@
 #     - import_tasks: tasks/productivity-tools.yml
 #     - import_tasks: tasks/zsh-setup.yml
   
-
+- name: Install Core Setup
+  ansible.builtin.include_tasks: tasks/core-setup.yml
+  args:
+    apply:
+      tags:
+        - install
+        - config
+        - nvim
+  tags:
+    - always
 
 - name: Install/Configure Neovim
   ansible.builtin.include_tasks: tasks/nvim-setup.yml
@@ -13,6 +22,7 @@
     apply:
       tags:
         - install
+        - config
         - nvim
   tags:
     - always
@@ -23,6 +33,7 @@
     apply:
       tags:
         - install
+        - config
         - zsh
   tags:
     - always

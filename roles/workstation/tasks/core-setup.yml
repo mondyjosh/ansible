@@ -40,7 +40,7 @@
       - nvidia-settings
       - pavucontrol
       - moreutils
-      - clangd
+      - clangdgit
       - ubuntu-mate-desktop
   tags:
     - install

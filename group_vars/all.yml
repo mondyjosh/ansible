@@ -1,7 +1,9 @@
+# TODO: Run each role independently to confirm isolated successes
 default_roles:
-  # - neovim
+  - git
+  - neovim
   - node
-  # - zsh
+  - zsh
 
   # - system
   #- 1password

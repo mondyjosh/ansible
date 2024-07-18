@@ -12,19 +12,6 @@
     state: present
   become: true
 
-- name: "Neovim | {{ ansible_distribution }} | Clone Nightly"
-  ansible.builtin.git:
-    repo: "https://github.com/neovim/neovim.git"
-    dest: "{{ lookup('env', 'HOME') }}/neovim"
-    force: true
-
-- name: "Neovim | {{ ansible_distribution }} | Build Nightly"
-  shell: "cd {{ lookup('env', 'HOME') }}/neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo"
-
-- name: "Neovim | {{ ansible_distribution }} | Install Nightly"
-  become: true
-  shell: "cd {{ lookup('env', 'HOME') }}/neovim && make install"
-
 - name: "Neovim | {{ ansible_distribution }} | LazyVim - Install Prerequisites"
   become: true
   ansible.builtin.dnf:
@@ -35,22 +22,10 @@
   tags:
     - neovim_lazyvim
 
-# TODO: Install nerd font (for lazyvim; other role)
-# TODO: Install lazygit (for lazyvim)
-# TODO: Install alacritty (for lazyvim; other role)
-# TODO: Use chezmoi to copy neovim dotfiles
-
 - name: "Neovim | {{ ansible_distribution }} | Plugin Development - Install LuaRocks"
   become: true
   ansible.builtin.dnf:
     name: luarocks
-  tags:
-    - neovim_plugins
-    - lua
-
-- name: "Neovim | {{ ansible_distribution }} | Plugin Development - Install Luacheck"
-  become: true
-  shell: "luarocks install luacheck"
   tags:
     - neovim_plugins
     - lua

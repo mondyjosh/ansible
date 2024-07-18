@@ -5,9 +5,43 @@
   tags:
     - neovim
 
-- name: "Neovim | {{ansible_distribution}} | Run Tasks"
+- name: "Neovim | {{ansible_distribution}} | Install Packages"
   ansible.builtin.include_tasks: "{{ ansible_distribution }}.yml"
   when: neovim_distribution_config.stat.exists
   tags:
     - neovim
     - install
+
+- name: "Neovim | Clone Nightly"
+  ansible.builtin.git:
+    repo: "https://github.com/neovim/neovim.git"
+    dest: "{{ lookup('env', 'HOME') }}/neovim"
+    force: true
+  tags:
+    - neovim
+    - install
+
+- name: "Neovim | Build Nightly with Debug Info"
+  shell: "cd {{ lookup('env', 'HOME') }}/neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo"
+  tags:
+    - neovim
+    - install
+
+- name: "Neovim | Install Nightly"
+  become: true
+  shell: "cd {{ lookup('env', 'HOME') }}/neovim && make install"
+  tags:
+    - neovim
+    - install
+
+- name: "Neovim | Plugin Development - Install Luacheck"
+  become: true
+  shell: "luarocks install luacheck"
+  tags:
+    - neovim_plugins
+    - lua
+
+# TODO: Install nerd font (for lazyvim; other role)
+# TODO: Install lazygit (for lazyvim)
+# TODO: Install alacritty (for lazyvim; other role)
+# TODO: Use chezmoi to copy neovim dotfiles

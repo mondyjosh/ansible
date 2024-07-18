@@ -23,7 +23,7 @@
   become: true
   shell: "cd {{ lookup('env', 'HOME') }}/neovim && make install"
 
-- name: "Neovim - LazyVim | {{ ansible_distribution }} | Install LazyVim Prerequisites"
+- name: "Neovim | {{ ansible_distribution }} | LazyVim - Install Prerequisites"
   become: true
   ansible.builtin.apt:
     name:
@@ -38,7 +38,7 @@
 # TODO: Install alacritty (for lazyvim; other role)
 # TODO: Use chezmoi to copy neovim dotfiles
 
-- name: "Neovim - Plugin Development | {{ ansible_distribution }} | Install LuaRocks"
+- name: "Neovim | {{ ansible_distribution }} | Plugin Development - Install LuaRocks"
   become: true
   ansible.builtin.apt:
     name: luarocks
@@ -46,7 +46,7 @@
     - neovim_plugins
     - lua
 
-- name: "Neovim - Plugin Development | {{ ansible_distribution }} | Install Luacheck"
+- name: "Neovim | {{ ansible_distribution }} | Plugin Development - Install Luacheck"
   become: true
   shell: "luarocks install luacheck"
   tags:

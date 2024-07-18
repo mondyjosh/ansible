@@ -1,5 +1,6 @@
 # TODO: Run each role independently to confirm isolated successes
 default_roles:
+  - system
   - brave
   - discord # TODO: Move to "fun" role
   - firefox

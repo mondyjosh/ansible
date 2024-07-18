@@ -5,7 +5,7 @@
   tags:
     - node
 
-- name: "Node | {{ansible_distribution}} | Install Dependencies"
+- name: "Node | {{ansible_distribution}} | Run Tasks"
   ansible.builtin.include_tasks: "{{ ansible_distribution }}.yml"
   when: node_distribution_config.stat.exists
   tags:

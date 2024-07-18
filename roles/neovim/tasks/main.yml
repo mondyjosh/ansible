@@ -5,7 +5,7 @@
   tags:
     - neovim
 
-- name: "Neovim | {{ansible_distribution}} | Install Dependencies"
+- name: "Neovim | {{ansible_distribution}} | Run Tasks"
   ansible.builtin.include_tasks: "{{ ansible_distribution }}.yml"
   when: neovim_distribution_config.stat.exists
   tags:

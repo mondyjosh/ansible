@@ -3,11 +3,10 @@
   connection: local
   # become: true
 
-#  vars_prompt:
-#    - name: include_playstation
-#      prompt: Include playstation role?
+  #  vars_prompt:
+  #    - name: include_playstation
+  #      prompt: Include playstation role?
 
-  # TODO: Distro-specific pre_tasks
   pre_tasks:
     - name: Execute Pre-Tasks
       ansible.builtin.include_tasks: pre_tasks/main.yml
@@ -36,5 +35,3 @@
       with_items: "{{ run_roles }}"
       tags:
         - always
-
-

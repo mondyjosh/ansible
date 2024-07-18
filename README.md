@@ -4,7 +4,7 @@ Personal Ansible project to aid in the rapid setup of local systems.
 
 ## Getting Started
 
-Run `./scripts/install-ansible` to ensure that the basic packages (`curl git ansible`) are installed prior to running the playbook. 
+Run `./scripts/install-ansible` to ensure that the basic packages (`curl git ansible`) are installed prior to running the playbook.
 
 ## Running the playbook
 
@@ -35,4 +35,3 @@ After building the Docker images, use `docker run --rm -it <tag_name> bash` to i
 - [ ] Add ZSH syntax highlighting
 - [ ] dotnet setup
 - [ ] i3 setup
-

@@ -1,4 +1,4 @@
-- name: "Neovim | {{ ansible_distribution }} | Install Build Prerequisites"
+- name: "Neovim | {{ ansible_distribution }} | Install Build Dependencies"
   ansible.builtin.dnf:
     name:
       - ninja-build
@@ -11,8 +11,11 @@
       - glibc-gconv-extra
     state: present
   become: true
+  tags:
+    - install
+    - neovim
 
-- name: "Neovim | {{ ansible_distribution }} | LazyVim - Install Prerequisites"
+- name: "Neovim | {{ ansible_distribution }} | Install LazyVim Dependencies"
   become: true
   ansible.builtin.dnf:
     name:
@@ -20,12 +23,16 @@
       - fd-find
       - git
   tags:
+    - install
+    - neovim
     - neovim_lazyvim
 
-- name: "Neovim | {{ ansible_distribution }} | Plugin Development - Install LuaRocks"
+- name: "Neovim | {{ ansible_distribution }} | Install Plugin Development Dependencies"
   become: true
   ansible.builtin.dnf:
     name: luarocks
   tags:
-    - neovim_plugins
+    - install
     - lua
+    - neovim
+    - neovim_plugins

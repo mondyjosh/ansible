@@ -1,0 +1,27 @@
+- name: "Node.js | Set Distribution Config: {{ ansible_distribution }}"
+  ansible.builtin.stat:
+    path: "{{ role_path }}/tasks/{{ ansible_distribution }}.yml"
+  register: neovim_distribution_config
+  tags:
+    - nodejs
+
+- name: "Node.js | {{ansible_distribution}} | Install Dependencies"
+  ansible.builtin.include_tasks: "{{ ansible_distribution }}.yml"
+  when: neovim_distribution_config.stat.exists
+  tags:
+    - install
+    - nodejs
+
+- name: "Node.js | Install n version manager"
+  npm:
+    name: "n"
+    global: true
+  tags:
+    - install
+    - nodejs
+
+- name: "Node.js | Install Node.js 14"
+  shell: n 14
+  tags:
+    - install
+    - nodejs

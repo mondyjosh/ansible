@@ -15,22 +15,13 @@
     repo: "https://github.com/neovim/neovim.git"
     dest: "{{ lookup('env', 'HOME') }}/neovim"
     force: true
-#  tags:
-#    - install
-#    - neovim
 
 - name: "Neovim | {{ ansible_distribution }} | Build Nightly"
   shell: "cd {{ lookup('env', 'HOME') }}/neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo"
-#  tags:
-#    - install
-#    - neovim
 
 - name: "Neovim | {{ ansible_distribution }} | Install Nightly"
   become: true
   shell: "cd {{ lookup('env', 'HOME') }}/neovim && make install"
-#  tags:
-#    - install
-#    - neovim
 
 - name: "Neovim - LazyVim | {{ ansible_distribution }} | Install LazyVim Prerequisites"
   become: true
@@ -40,7 +31,7 @@
       - fd-find
       - git
   tags:
-    - lazyvim
+    - neovim_lazyvim
 
 # TODO: Install nerd font (for lazyvim; other role)
 # TODO: Install lazygit (for lazyvim)
@@ -54,8 +45,6 @@
   tags:
     - neovim_plugins
     - lua
-#    - install
-#    - neovim
 
 - name: "Neovim - Plugin Development | {{ ansible_distribution }} | Install Luacheck"
   become: true

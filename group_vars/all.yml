@@ -1,8 +1,20 @@
 # TODO: Run each role independently to confirm isolated successes
 default_roles:
+  - brave
+  - firefox
+  - flameshot
+  - gimp
   - git
+  - kdenlive
+  - keepassxc
   - neovim
   - node
+  - obsidian
+  - postman
+  - spotify
+  - thunderbird
+  - wireshark
+  - zoom
   - zsh
 
   # - system

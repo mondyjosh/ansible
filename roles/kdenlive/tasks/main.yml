@@ -1,0 +1,8 @@
+- name: "Kdenlive | Install"
+  community.general.flatpak:
+    name: org.kde.kdenlive
+    state: present
+  tags:
+    - flatpak
+    - kdenlive
+    - install

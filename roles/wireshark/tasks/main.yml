@@ -1,0 +1,8 @@
+- name: "Wireshark | Install"
+  community.general.flatpak:
+    name: org.wireshark.Wireshark
+    state: present
+  tags:
+    - install
+    - flatpak
+    - wireshark

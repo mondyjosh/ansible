@@ -1,0 +1,8 @@
+- name: "Zoom | Install"
+  community.general.flatpak:
+    name: us.zoom.Zoom
+    state: present
+  tags:
+    - install
+    - flatpak
+    - zoom

@@ -1,0 +1,8 @@
+- name: "Flameshot | Install"
+  community.general.flatpak:
+    name: org.flameshot.Flameshot
+    state: present
+  tags:
+    - flameshot
+    - flatpak
+    - install

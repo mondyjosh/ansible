@@ -1,0 +1,6 @@
+- name: "Zsh | {{ ansible_distribution }} | Install Zsh"
+  ansible.builtin.dnf:
+    name: zsh
+    state: present
+  become: true
+

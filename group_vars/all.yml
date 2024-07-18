@@ -1,4 +1,7 @@
 default_roles:
+  # - neovim
+  - zsh
+
   # - system
   #- 1password
   # - alacritty
@@ -19,7 +22,7 @@ default_roles:
   #- lua
   #- nala
   #- neofetch
-  - neovim
+  # - neovim
   #- npm
   #- nvm
   #- obsidian
@@ -36,6 +39,7 @@ default_roles:
   #- zellij
   # - spotify
   #- zoxide
+  # - zsh
   
 flatpak_packages:
 - com.brave.Browser

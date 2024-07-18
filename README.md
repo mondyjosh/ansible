@@ -24,3 +24,15 @@ After building the Docker images, use `docker run --rm -it <tag_name> bash` to i
 - [Docker Docs - Install Docker Engine](https://docs.docker.com/engine/install/) - installation docs for Docker
 - [Github - The Primagen/ansible](https://github.com/ThePrimeagen/ansible) - The initial inspiration for this project, especially the Docker image testing environments
 
+## Outstanding TODOs
+
+- [ ] Adjust playbook to Ansible best practices
+- [ ] Loop through tasks instead of manually declaring them
+- [ ] Add task to install Fira Nerd Font
+- [ ] Add task to install Atom One terminal
+- [ ] Fix git clone issues
+- [ ] Add Spaceship prompt install
+- [ ] Add ZSH syntax highlighting
+- [ ] dotnet setup
+- [ ] i3 setup
+

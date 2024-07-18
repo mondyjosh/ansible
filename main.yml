@@ -10,7 +10,7 @@
   # TODO: Distro-specific pre_tasks
   pre_tasks:
     - name: Execute Pre-Tasks
-      ansible.builtin.include_tasks: roles/pre_tasks.yml
+      ansible.builtin.include_tasks: pre_tasks/main.yml
 
   tasks:
     - name: Set roles

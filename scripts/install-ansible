@@ -4,9 +4,9 @@ PACKAGE_NAME=git
 
 APT_GET_CMD=$(which apt-get)
 DNF_CMD=$(which dnf)
-CORE_PACKAGES="curl git ansible"
+CORE_PACKAGES="curl git ansible ansible-lint"
 
-# Install bootstrap packages (sure, it's clunky, but it works in a pinch)
+# Install ansible bootstrap packages (sure, it's clunky, but it works in a pinch)
 if [[ ! -z $APT_GET_CMD ]]; then
    sudo apt-add-repository -y ppa:ansible/ansible
    sudo apt-get update -y

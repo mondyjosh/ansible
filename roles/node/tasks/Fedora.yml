@@ -1,8 +1,8 @@
-- name: "Node.js | {{ ansible_distribution }} | Install Node.js Dependencies"
+- name: "Node | {{ ansible_distribution }} | Install Node Dependencies"
   ansible.builtin.dnf:
     name:
-      - nodejs
+      - node
       - npm
   tags:
     - install
-    - nodejs
+    - node

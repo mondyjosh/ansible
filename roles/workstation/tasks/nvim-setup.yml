@@ -12,6 +12,7 @@
 #  tags:
 #    - install
 #    - neovim
+
 - name: Clone neovim (nightly)
   ansible.builtin.git:
     repo: "https://github.com/neovim/neovim.git"

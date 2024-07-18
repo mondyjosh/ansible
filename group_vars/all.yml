@@ -1,0 +1,53 @@
+default_roles:
+  # - system
+  #- 1password
+  # - alacritty
+  #- asciiquarium
+  #- bash
+  #- bat
+  #- docker
+  #- flatpak
+  #- fonts
+  #- fzf
+  #- git
+  #- go
+  #- helm
+  #- k8s
+  #- k9s
+  #- lazygit
+  #- lsd
+  #- lua
+  #- nala
+  #- neofetch
+  - neovim
+  #- npm
+  #- nvm
+  #- obsidian
+  #- pwsh
+  #- python
+  #- ruby
+  #- rust
+  #- ssh
+  #- sshfs
+  #- terraform
+  #- tldr
+  #- tmate
+  #- tmux
+  #- zellij
+  # - spotify
+  #- zoxide
+  
+flatpak_packages:
+- com.brave.Browser
+- org.mozilla.firefox
+- org.flameshot.Flameshot
+- org.gimp.GIMP
+- org.keepassxc.KeePassXC
+- org.kde.kdenlive
+- md.obsidian.Obsidian
+- com.getpostman.Postman
+- com.spotify.Client
+- org.mozilla.Thunderbird
+- org.wireshark.Wireshark
+- us.zoom.Zoom
+

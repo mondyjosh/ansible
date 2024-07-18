@@ -1,6 +1,6 @@
 - name: Install System Packages 1 - build-essential, cmake, pkg-config, pthread
   become: true
-  ansible.builtin.apt:
+  apt:
     name:
       - build-essential
       - cmake
@@ -12,7 +12,7 @@
     - core
 - name: Install System Packages 2 - lua, unzip, libtool, libtool-bin, gettext
   become: true
-  ansible.builtin.apt:
+  apt:
     name:
       - lua5.1
       - unzip
@@ -25,7 +25,7 @@
     - core
 - name: Install System Packages 3 - the rest
   become: true
-  ansible.builtin.apt:
+  apt:
     name:
       - compton
       - curl
@@ -40,14 +40,14 @@
       - nvidia-settings
       - pavucontrol
       - moreutils
-      - clangd
+      - clangdgit
       - ubuntu-mate-desktop
   tags:
     - install
     - core
 - name: Install Clang
   become: true
-  ansible.builtin.apt:
+  apt:
     name:
       - clang
       - clangd

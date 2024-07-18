@@ -1,0 +1,7 @@
+# sudo dnf -y install ninja-build cmake gcc make unzip gettext curl glibc-gconv-extra
+  
+- name: "Neovim | {{ ansible_distribution }} | Install Neovim Nightly"
+  # kewlfft.aur.aur:
+  #   name: neovim-git
+  #   state: present
+  

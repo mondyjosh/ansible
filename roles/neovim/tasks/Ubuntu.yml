@@ -1,0 +1,65 @@
+- name: "Neovim | {{ ansible_distribution }} | Install Build Prerequisites"
+  ansible.builtin.apt:
+    name:
+      - ninja-build
+      - gettext
+      - cmake
+      - unzip
+      - curl
+      - build-essential
+    state: present
+  become: true
+
+- name: "Neovim | {{ ansible_distribution }} | Clone Nightly"
+  ansible.builtin.git:
+    repo: "https://github.com/neovim/neovim.git"
+    dest: "{{ lookup('env', 'HOME') }}/neovim"
+    force: true
+#  tags:
+#    - install
+#    - neovim
+
+- name: "Neovim | {{ ansible_distribution }} | Build Nightly"
+  shell: "cd {{ lookup('env', 'HOME') }}/neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo"
+#  tags:
+#    - install
+#    - neovim
+
+- name: "Neovim | {{ ansible_distribution }} | Install Nightly"
+  become: true
+  shell: "cd {{ lookup('env', 'HOME') }}/neovim && make install"
+#  tags:
+#    - install
+#    - neovim
+
+- name: "Neovim - LazyVim | {{ ansible_distribution }} | Install LazyVim Prerequisites"
+  become: true
+  ansible.builtin.apt:
+    name:
+      - ripgrep
+      - fd-find
+      - git
+  tags:
+    - lazyvim
+
+# TODO: Install nerd font (for lazyvim; other role)
+# TODO: Install lazygit (for lazyvim)
+# TODO: Install alacritty (for lazyvim; other role)
+# TODO: Use chezmoi to copy neovim dotfiles
+
+- name: "Neovim - Plugin Development | {{ ansible_distribution }} | Install LuaRocks"
+  become: true
+  ansible.builtin.apt:
+    name: luarocks
+  tags:
+    - neovim_plugins
+    - lua
+#    - install
+#    - neovim
+
+- name: "Neovim - Plugin Development | {{ ansible_distribution }} | Install Luacheck"
+  become: true
+  shell: "luarocks install luacheck"
+  tags:
+    - neovim_plugins
+    - lua

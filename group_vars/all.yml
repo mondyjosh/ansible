@@ -1,6 +1,7 @@
 # TODO: Run each role independently to confirm isolated successes
 default_roles:
   - brave
+  - discord # TODO: Move to "fun" role
   - firefox
   - flameshot
   - gimp
@@ -11,7 +12,9 @@ default_roles:
   - node
   - obsidian
   - postman
+  - signal # TODO: Move to "fun" role
   - spotify
+  - steam # TODO: Move to "fun" role
   - thunderbird
   - wireshark
   - zoom

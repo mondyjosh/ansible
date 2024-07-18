@@ -3,6 +3,6 @@
     name: com.getpostman.Postman
     state: present
   tags:
-    - install
     - flatpak
+    - install
     - postman

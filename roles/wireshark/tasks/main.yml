@@ -3,6 +3,6 @@
     name: org.wireshark.Wireshark
     state: present
   tags:
-    - install
     - flatpak
+    - install
     - wireshark

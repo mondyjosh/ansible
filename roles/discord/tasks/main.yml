@@ -1,8 +1,8 @@
-- name: "Thunderbird | Install"
+- name: "Discord | Install"
   community.general.flatpak:
-    name: org.mozilla.Thunderbird
+    name: com.discordapp.Discord
     state: present
   tags:
+    - discord
     - flatpak
     - install
-    - thunderbird

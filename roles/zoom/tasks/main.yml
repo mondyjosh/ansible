@@ -3,6 +3,6 @@
     name: us.zoom.Zoom
     state: present
   tags:
-    - install
     - flatpak
+    - install
     - zoom

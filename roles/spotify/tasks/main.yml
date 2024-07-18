@@ -3,6 +3,6 @@
     name: com.spotify.Client
     state: present
   tags:
-    - install
     - flatpak
+    - install
     - spotify

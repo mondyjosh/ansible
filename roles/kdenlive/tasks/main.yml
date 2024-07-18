@@ -4,5 +4,5 @@
     state: present
   tags:
     - flatpak
-    - kdenlive
     - install
+    - kdenlive

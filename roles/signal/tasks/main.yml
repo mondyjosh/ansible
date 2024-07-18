@@ -1,8 +1,8 @@
-- name: "Thunderbird | Install"
+- name: "Signal | Install"
   community.general.flatpak:
-    name: org.mozilla.Thunderbird
+    name: org.signal.Signal
     state: present
   tags:
     - flatpak
     - install
-    - thunderbird
+    - signal

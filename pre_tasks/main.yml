@@ -4,13 +4,32 @@
 
 - name: "Pre-Tasks | Set Distribution Config: {{ ansible_distribution }}"
   ansible.builtin.stat:
-    path: "pre_tasks/tasks/{{ ansible_distribution }}.yml"
-  register: git_distribution_config
+    path: "pre_tasks/{{ ansible_distribution }}.yml"
+  register: pre_tasks_distribution_config
   tags:
     - pre-tasks
 
 - name: "Pre-Tasks | {{ansible_distribution}} | Install Dependencies"
   ansible.builtin.include_tasks: "{{ ansible_distribution }}.yml"
-  when: git_distribution_config.stat.exists
+  when: pre_tasks_distribution_config.stat.exists
   tags:
     - pre-tasks
+
+- name: "Flatpak | Add Flathub Repository"
+  community.general.flatpak_remote:
+    name: flathub
+    state: present
+    flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+  tags:
+    - flatpak
+    - flathub
+    - repos
+
+- name: "Flatpak | Install Builder"
+  community.general.flatpak:
+    name: org.flatpak.Builder
+    state: present
+  tags:
+    - builder
+    - flatpak
+    - install

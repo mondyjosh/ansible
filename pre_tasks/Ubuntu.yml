@@ -10,7 +10,7 @@
     - install
     - flatpak
 
-- name: "Flatpak | {{ ansible_distribution }} |Install Software Plugin"
+- name: "Flatpak | {{ ansible_distribution }} | Install Software Plugin"
   ansible.builtin.apt:
     name: gnome-software-plugin-flatpak
     state: present
@@ -18,12 +18,4 @@
     - flatpak
     - plugin
 
-- name: "Flatpak | {{ ansible_distribution }} | Add Flathub Repository"
-  community.general.flatpak_remote:
-    name: flathub
-    state: present
-    flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
-  tags:
-    - flatpak
-    - flathub
-    - repos
+

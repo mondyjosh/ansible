@@ -4,7 +4,7 @@
 
 - name: "Pre-Tasks | Set Distribution Config: {{ ansible_distribution }}"
   ansible.builtin.stat:
-    path: "{{ role_path }}/tasks/{{ ansible_distribution }}.yml"
+    path: "pre_tasks/tasks/{{ ansible_distribution }}.yml"
   register: git_distribution_config
   tags:
     - pre-tasks

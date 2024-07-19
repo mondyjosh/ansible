@@ -23,6 +23,7 @@ After building the Docker images, use `docker run --rm -it <tag_name> bash` to i
   - [Handling OS and Distro Differences](https://docs.ansible.com/ansible/latest/tips_tricks/ansible_tips_tricks.html#handling-os-and-distro-differences)
 - [Docker Docs - Install Docker Engine](https://docs.docker.com/engine/install/) - installation docs for Docker
 - [Github - The Primagen/ansible](https://github.com/ThePrimeagen/ansible) - The initial inspiration for this project, especially the Docker image testing environments
+- [Github - TechDufus/dotfiles](https://github.com/TechDufus/dotfiles) - The inspiration for the project's layout and multi-distribution targeting
 
 ## Outstanding TODOs
 

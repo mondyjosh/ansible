@@ -1,4 +1,4 @@
-- name: "firefox | Install"
+- name: "Firefox | Install"
   community.general.flatpak:
     name: org.mozilla.firefox
     state: present

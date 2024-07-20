@@ -1,6 +1,5 @@
 # TODO: Ensure community.general is installed from ansible-galaxy
-# TODO: Ensure chezmoi is installed and ready
-# TODO: Establish must_haves prior to executing any roles
+# TODO: Establish must-haves prior to executing any roles
 
 - name: "Pre-Tasks | Set Distribution Config: {{ ansible_distribution }}"
   ansible.builtin.stat:
@@ -25,11 +24,16 @@
     - flathub
     - repos
 
-- name: "Flatpak | Install Builder"
-  community.general.flatpak:
-    name: org.flatpak.Builder
-    state: present
+- name: "chezmoi | Initialize mondyjosh dotfiles"
+  shell: "sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply mondyjosh"
   tags:
-    - builder
-    - flatpak
+    - chezmoi
+    - dotfiles
+    - install
+
+- name: "chezmoi | Pull and apply latest changes"
+  shell: "chezmoi update"
+  tags:
+    - chezmoi
+    - dotfiles
     - install

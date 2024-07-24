@@ -7,4 +7,4 @@ if [[ $(whoami) != "root" ]]; then
 fi
 
 # Run local developer workstation install
-ansible-playbook main.yml -i inventories/localhost.ini -K
+ansible-playbook main.yml -i inventories/localhost.ini -K # -vvv # for debug messages

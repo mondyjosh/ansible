@@ -1,76 +1,31 @@
 # TODO: Run each role independently to confirm isolated successes
 default_roles:
-  - system
-  - brave
-  - discord # TODO: Move to "fun" role
-  - firefox
-  - flameshot
-  - gimp
-  - git
-  - kdenlive
-  - keepassxc
-  - neovim
-  - node
-  - obsidian
-  - postman
-  - signal # TODO: Move to "fun" role
-  - spotify
-  - steam # TODO: Move to "fun" role
-  - thunderbird
-  - wireshark
-  - zoom
-  - zsh
+  - system #TODO: Figure out per distro
+  # - neofetch #TODO: make role
+  # - neovim # failing, github fingerprint issues
+  # - node # failing
+  # - onedrive #TODO: Make role
+  # - postman # flatpak failing on both
+  # - spotify # flatpak failing on both
+  # - zoom # flatpak failing on both
+  # - zsh # failing, github fingerprint issues
 
-  # - system
-  #- 1password
-  # - alacritty
-  #- asciiquarium
-  #- bash
-  #- bat
-  #- docker
-  #- flatpak
-  #- fonts
-  #- fzf
-  #- git
-  #- go
-  #- helm
-  #- k8s
-  #- k9s
-  #- lazygit
-  #- lsd
-  #- lua
-  #- nala
-  #- neofetch
-  # - neovim
-  #- npm
-  #- nvm
-  #- obsidian
-  #- pwsh
-  #- python
-  #- ruby
-  #- rust
-  #- ssh
-  #- sshfs
-  #- terraform
-  #- tldr
-  #- tmate
-  #- tmux
-  #- zellij
-  # - spotify
-  #- zoxide
-  # - zsh
+  # -- WORKING! --
+  # - brave
+  # - firefox
+  # - flameshot
+  # - gimp
+  # - git
+  # - kdenlive
+  # - keepassxc
+  # - obsidian
+  # - thunderbird
+  # - wireshark
 
-flatpak_packages:
-- com.brave.Browser
-- org.mozilla.firefox
-- org.flameshot.Flameshot
-- org.gimp.GIMP
-- org.keepassxc.KeePassXC
-- org.kde.kdenlive
-- md.obsidian.Obsidian
-- com.getpostman.Postman
-- com.spotify.Client
-- org.mozilla.Thunderbird
-- org.wireshark.Wireshark
-- us.zoom.Zoom
+# TODO: Prompt for fun_roles and run if yes
+fun_roles:
+  - discord
+  - signal
+  - steam
 
+github_username: mondyjosh

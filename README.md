@@ -27,11 +27,9 @@ After building the Docker images, use `docker run --rm -it <tag_name> bash` to i
 
 ## Outstanding TODOs
 
-- [ ] Adjust playbook to Ansible best practices
-- [ ] Loop through tasks instead of manually declaring them
-- [ ] Add task to install Fira Nerd Font
-- [ ] Add task to install Atom One terminal
-- [ ] Fix git clone issues
+- [ ] Add task Fira Nerd Font
+- [ ] Add task Atom One terminal
+- [ ] Add OneDrive (plus GUI)
 - [ ] Add Spaceship prompt install
 - [ ] Add ZSH syntax highlighting
 - [ ] dotnet setup

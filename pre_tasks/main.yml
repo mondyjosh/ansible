@@ -24,16 +24,23 @@
     - flathub
     - repos
 
-- name: "chezmoi | Initialize mondyjosh dotfiles"
-  shell: "sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply mondyjosh"
+- name: "chezmoi | Install"
+  shell: >-
+    sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/bin
+  args:
+    chdir: ~
+    creates: ~/bin/chezmoi
+  register: chezmoi
   tags:
     - chezmoi
     - dotfiles
     - install
 
-- name: "chezmoi | Pull and apply latest changes"
-  shell: "chezmoi update"
+- name: "chezmoi | Pull and apply {{ github_username }} dotfiles"
+  shell: >-
+    chezmoi init https://github.com/{{ github_username }}/dotfiles.git --apply
   tags:
     - chezmoi
     - dotfiles
     - install
+

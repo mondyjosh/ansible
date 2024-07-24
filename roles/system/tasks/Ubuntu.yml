@@ -41,7 +41,7 @@
       - fzf
       - ripgrep
       - tldr
-      - tmux # TODO: Should TMUX get its own role?
+      - tmux #TODO: Should TMUX get its own role?
       - xclip
   tags:
     - install

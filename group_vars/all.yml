@@ -1,6 +1,6 @@
 # TODO: Run each role independently to confirm isolated successes
 default_roles:
-  - system #TODO: Figure out per distro
+  - system
   # - neofetch #TODO: make role
   # - neovim # failing, github fingerprint issues
   # - node # failing

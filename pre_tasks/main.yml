@@ -1,5 +1,6 @@
 # TODO: Ensure community.general is installed from ansible-galaxy
 # TODO: Establish must-haves prior to executing any roles
+# TODO: Check for SSH Keys
 
 - name: "Pre-Tasks | Set Distribution Config: {{ ansible_distribution }}"
   ansible.builtin.stat:
@@ -22,6 +23,7 @@
   tags:
     - flatpak
     - flathub
+    - pre-tasks
     - repos
 
 - name: "chezmoi | Install"
@@ -35,12 +37,16 @@
     - chezmoi
     - dotfiles
     - install
+    - pre-tasks
 
 - name: "chezmoi | Pull and apply {{ github_username }} dotfiles"
   shell: >-
     chezmoi init https://github.com/{{ github_username }}/dotfiles.git --apply
+  args:
+    creates: "~/.local/share/chezmoi"
   tags:
     - chezmoi
     - dotfiles
     - install
+    - pre-tasks
 

@@ -1,0 +1,44 @@
+- name: "NVIDIA | {{ ansible_distribution }} | Install Kernel Headers and Development Tools"
+  become: true
+  ansible.builtin.dnf:
+    name:
+      - kernel-devel
+      - kernel-headers
+      - gcc
+      - make
+      - dkms
+      - acpid
+      - libglvnd-glx
+      - libglvnd-opengl
+      - libglvnd-devel
+      - pkgconfig
+  tags:
+    - install
+    - nvidia
+
+- name: "NVIDIA | {{ ansible_distribution }} | Install RPM Fusion Repositories"
+  become: true
+  ansible.builtin.dnf:
+    name:
+      - https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+      - https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+  tags:
+    - install
+    - nvidia
+
+- name: "NVIDIA | {{ ansible_distribution }} | Update Package Repository Cache"
+  ansible.builtin.dnf:
+    update_cache: true
+  tags:
+    - install
+    - nvidia
+
+- name: "NVIDIA | {{ ansible_distribution }} | NVIDIA Driver and CUDA Support"
+  become: true
+  ansible.builtin.dnf:
+    name:
+      - akmod-nvidia
+      - xorg-x11-drv-nvidia-cuda
+  tags:
+    - install
+    - nvidia

@@ -3,4 +3,5 @@
     name: zsh
     state: present
   become: true
-
+  tags:
+    - zsh

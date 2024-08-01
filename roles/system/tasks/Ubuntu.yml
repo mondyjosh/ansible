@@ -1,4 +1,3 @@
-# TODO: Audit list to see if packages are relevant to my workflow
 - name: "System | {{ ansible_distribution }} | Install System Packages"
   become: true
   ansible.builtin.apt:
@@ -8,14 +7,11 @@
       - clang
       - clangd
       - cmake
-      - compton
       - curl
       - dconf-editor
       - gettext
       - golang
       - htop
-      - i3
-      - libpthread-stubs0-dev
       - libtool
       - libtool-bin
       - lsof
@@ -24,15 +20,14 @@
       - ninja-build
       - nvidia-settings
       - pavucontrol
+      - picom
       - pkg-config
       - python3-pip
-      - ubuntu-mate-desktop
       - unzip
   tags:
     - install
     - system
 
-# TODO: Audit list to see if packages are relevant to my workflow
 - name: "System | {{ ansible_distribution }} | Install Productivity Tools"
   become: true
   ansible.builtin.apt:
@@ -41,7 +36,6 @@
       - fzf
       - ripgrep
       - tldr
-      - tmux #TODO: Should TMUX get its own role?
       - xclip
   tags:
     - install

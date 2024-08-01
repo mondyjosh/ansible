@@ -1,6 +1,3 @@
-# TODO: Audit list to see if packages are relevant to my workflow
-# TODO: Some of these need to be their own roles
-# TODO: Some of these packages are represented in other roles already (i.e., Neovim)
 - name: "System | {{ ansible_distribution }} | Install System Packages"
   become: true
   ansible.builtin.dnf:
@@ -8,23 +5,19 @@
       - "@development-tools"
       - ccache
       - clang
-      - clangd # broken, find replacement
+      - clang-tools-extra
       - cmake
-      - compton # broken, not sure if needed
       - curl
       - dconf-editor
       - gettext
       - golang
       - htop
-      - i3 # TODO: Move i3 to its own role
-      - libpthread-stubs0-dev # broken, not sure if needed
       - libtool
-      - libtool-bin #broken, not sure if needed
       - lsof
       - lua5.1
       - moreutils
       - ninja-build
-      - nvidia-settings # TODO: Figure this one out, oy.
+      - picom
       - pavucontrol
       - pkg-config
       - python3-pip
@@ -33,7 +26,6 @@
     - install
     - system
 
-# TODO: Audit list to see if packages are relevant to my workflow
 - name: "System | {{ ansible_distribution }} | Install Productivity Tools"
   become: true
   ansible.builtin.dnf:
@@ -42,7 +34,6 @@
       - fzf
       - ripgrep
       - tldr
-      - tmux #TODO: Move TMUX to its own role
       - xclip
   tags:
     - install

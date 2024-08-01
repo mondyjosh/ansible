@@ -1,5 +1,6 @@
 - name: "Zsh | Remove oh-my-zsh Plugins and Themes"
   shell: rm -rf ~/.oh-my-zsh/custom/plugins/* ~/.oh-my-zsh/custom/themes/*
+  become: true
   tags:
     - cleanup
     - zsh
@@ -21,6 +22,7 @@
 
 - name: "Zsh | Set Zsh as Default Shell for Users"
   shell: chsh -s /bin/zsh
+  become: true
   tags:
     - zsh
 
@@ -37,8 +39,10 @@
 
 - name: "Zsh | Install oh-my-zsh Plugin - zsh-autosuggestions"
   ansible.builtin.git:
-    repo: "https://github.com/zsh-users/zsh-autosuggestions.git"
-    dest: "{{ lookup('env', 'HOME') }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
+    repo: "git@github.com:zsh-users/zsh-autosuggestions.git"
+    dest: "~/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
+    key_file: "{{ ssh_key}}"
+    update: true
   tags:
     - zsh
     - oh_my_zsh
@@ -46,8 +50,10 @@
 
 - name: "Zsh | Install oh-my-zsh plugin - zsh-nvm plugin"
   ansible.builtin.git:
-    repo: "https://github.com/lukechilds/zsh-nvm.git"
-    dest: "{{ lookup('env', 'HOME') }}/.oh-my-zsh/custom/plugins/zsh-nvm"
+    repo: "git@github.com:lukechilds/zsh-nvm.git"
+    dest: "~/.oh-my-zsh/custom/plugins/zsh-nvm"
+    key_file: "{{ ssh_key}}"
+    update: true
   tags:
     - zsh
     - oh_my_zsh
@@ -55,9 +61,11 @@
 
 - name: "Zsh | Install oh-my-zsh Theme - Spaceship"
   ansible.builtin.git:
-    repo: "https://github.com/spaceship-prompt/spaceship-prompt.git"
+    repo: "git@github.com:spaceship-prompt/spaceship-prompt.git"
+    dest: "~/.oh-my-zsh/custom/themes/spaceship-prompt"
+    key_file: "{{ ssh_key}}"
+    update: true
     depth: 1
-    dest: "{{ lookup('env', 'HOME') }}/.oh-my-zsh/custom/themes/spaceship-prompt"
   tags:
     - zsh
     - oh-my-zsh

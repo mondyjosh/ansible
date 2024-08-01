@@ -1,0 +1,9 @@
+- name: "i3 | {{ ansible_distribution }} | Install i3"
+  become: true
+  ansible.builtin.apt:
+    name:
+      - i3
+  tags:
+    - install
+    - i3
+

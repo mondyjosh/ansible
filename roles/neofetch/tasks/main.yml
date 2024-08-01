@@ -1,0 +1,13 @@
+- name: "neofetch | Set Distribution Config: {{ ansible_distribution }}"
+  ansible.builtin.stat:
+    path: "{{ role_path }}/tasks/{{ ansible_distribution }}.yml"
+  register: neofetch_config
+  tags:
+    - neofetch
+
+- name: "neofetch | {{ ansible_distribution }} | Run Tasks"
+  ansible.builtin.include_tasks: "{{ ansible_distribution }}.yml"
+  when: neofetch_config.stat.exists
+  tags:
+    - install
+    - neofetch

@@ -1,26 +1,32 @@
-# TODO: Run each role independently to confirm isolated successes
 default_roles:
-  - system
-  # - neofetch #TODO: make role
+  # - alacritty
   # - neovim # failing, github fingerprint issues
   # - node # failing
-  # - onedrive #TODO: Make role
-  # - postman # flatpak failing on both
-  # - spotify # flatpak failing on both
-  # - zoom # flatpak failing on both
-  # - zsh # failing, github fingerprint issues
+  # - nvidia
+  - zsh # failing, github fingerprint issues
 
   # -- WORKING! --
+  # - system
   # - brave
   # - firefox
   # - flameshot
   # - gimp
   # - git
+  # - i3
   # - kdenlive
   # - keepassxc
+  # - neofetch
   # - obsidian
+  # - onedrive
+  # - postman
+  # - slack
+  # - spotify
   # - thunderbird
   # - wireshark
+  # - zoom
+
+# TODO: Check for SSH key in pre_tasks
+ssh_key: "~/.ssh/id_ed25519"
 
 # TODO: Prompt for fun_roles and run if yes
 fun_roles:

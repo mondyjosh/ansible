@@ -1,0 +1,9 @@
+- name: "fastfetch | {{ ansible_distribution }} | Install fastfetch"
+  become: true
+  ansible.builtin.dnf:
+    name:
+      - fastfetch
+  tags:
+    - install
+    - fastfetch
+

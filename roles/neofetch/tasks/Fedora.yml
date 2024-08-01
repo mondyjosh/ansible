@@ -1,9 +1,0 @@
-- name: "neofetch | {{ ansible_distribution }} | Install neofetch"
-  become: true
-  ansible.builtin.dnf:
-    name:
-      - neofetch
-  tags:
-    - install
-    - neofetch
-

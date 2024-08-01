@@ -3,8 +3,7 @@ default_roles:
   # - neovim # failing, github fingerprint issues
   # - node # failing
   # - nvidia
-  - zsh # failing, github fingerprint issues
-
+  - fastfetch
   # -- WORKING! --
   # - system
   # - brave
@@ -24,6 +23,7 @@ default_roles:
   # - thunderbird
   # - wireshark
   # - zoom
+  # - zsh 
 
 # TODO: Check for SSH key in pre_tasks
 ssh_key: "~/.ssh/id_ed25519"

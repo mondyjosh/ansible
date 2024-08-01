@@ -1,4 +1,5 @@
 - name: "Neovim | {{ ansible_distribution }} | Install Build Dependencies"
+  become: true
   ansible.builtin.dnf:
     name:
       - ninja-build
@@ -10,7 +11,6 @@
       - curl
       - glibc-gconv-extra
     state: present
-  become: true
   tags:
     - install
     - neovim

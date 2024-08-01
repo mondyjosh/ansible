@@ -1,4 +1,5 @@
 - name: "Neovim | {{ ansible_distribution }} | Install Build Prerequisites"
+  become: true
   ansible.builtin.apt:
     name:
       - ninja-build
@@ -8,7 +9,6 @@
       - curl
       - build-essential
     state: present
-  become: true
   tags:
     - install
     - neovim

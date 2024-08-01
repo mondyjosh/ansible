@@ -1,12 +1,15 @@
 default_roles:
-  # - alacritty
-  # - neovim # failing, github fingerprint issues
-  # - node # failing
+  # - alacritty # TODO
+  # - fonts # TODO
+  # - lazygit # TODO
+  - node # failing
   # - nvidia
-  - fastfetch
+  # - tmux # TODO
+
   # -- WORKING! --
   # - system
   # - brave
+  # - fastfetch
   # - firefox
   # - flameshot
   # - gimp
@@ -15,6 +18,7 @@ default_roles:
   # - kdenlive
   # - keepassxc
   # - neofetch
+  # - neovim
   # - obsidian
   # - onedrive
   # - postman
@@ -23,7 +27,7 @@ default_roles:
   # - thunderbird
   # - wireshark
   # - zoom
-  # - zsh 
+  # - zsh
 
 # TODO: Check for SSH key in pre_tasks
 ssh_key: "~/.ssh/id_ed25519"

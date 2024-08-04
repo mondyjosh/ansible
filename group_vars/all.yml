@@ -1,13 +1,13 @@
 default_roles:
-  # - alacritty # TODO
-  # - fonts # TODO
+  - fonts
   # - lazygit # TODO
-  - node # failing
-  # - nvidia
-  # - tmux # TODO
+  # - rust
+  # - ssh
+  # - dotnet
 
   # -- WORKING! --
   # - system
+  #- alacritty
   # - brave
   # - fastfetch
   # - firefox
@@ -19,12 +19,14 @@ default_roles:
   # - keepassxc
   # - neofetch
   # - neovim
+  # - node
   # - obsidian
   # - onedrive
   # - postman
   # - slack
   # - spotify
   # - thunderbird
+  # - tmux
   # - wireshark
   # - zoom
   # - zsh

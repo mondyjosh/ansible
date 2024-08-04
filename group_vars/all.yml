@@ -1,13 +1,13 @@
 default_roles:
-  - fonts
   # - lazygit # TODO
   # - rust
-  # - ssh
+  - ssh
   # - dotnet
 
   # -- WORKING! --
   # - system
-  #- alacritty
+  # - fonts #TODO: Consolidate with system?
+  # - alacritty
   # - brave
   # - fastfetch
   # - firefox

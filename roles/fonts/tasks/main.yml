@@ -9,7 +9,7 @@
   register: hack_exists
   ignore_errors: yes
 
-# TODO: Github equivalent?
+# TODO: Github equivalent task?
 - name: "fonts | Download Hack Nerd Font"
   when: hack_exists is failed
   ansible.builtin.unarchive:
@@ -23,7 +23,7 @@
   register: hack_exists
   ignore_errors: yes
 
-# TODO: Github equivalent?
+# TODO: Github equivalent task?
 - name: "fonts | Download FiraCode Nerd Font"
   when: hack_exists is failed
   ansible.builtin.unarchive:
@@ -31,4 +31,3 @@
     dest: "{{ lookup('env', 'HOME') }}/.fonts/"
     remote_src: yes
 
-# TODO: Set font in other roles; move this near top of all.yml; maybe consolidate with system?

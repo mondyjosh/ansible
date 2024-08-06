@@ -37,7 +37,7 @@
     - zsh
     - oh_my_zsh
 
-- name: "Zsh | Install oh-my-zsh Plugin - zsh-autosuggestions"
+- name: "Oh-My-Zsh | Plugins | Install zsh-autosuggestions"
   ansible.builtin.git:
     repo: "git@github.com:zsh-users/zsh-autosuggestions.git"
     dest: "{{ omz_plugins_dir }}/zsh-autosuggestions"
@@ -47,8 +47,9 @@
     - zsh
     - oh_my_zsh
     - plugins
+    - zsh_autosuggestions
 
-- name: "Zsh | Install oh-my-zsh plugin - zsh-nvm plugin"
+- name: "Oh-My-Zsh | Plugins | Install zsh-nvm"
   ansible.builtin.git:
     repo: "git@github.com:lukechilds/zsh-nvm.git"
     dest: "{{ omz_plugins_dir }}/zsh-nvm"
@@ -58,8 +59,21 @@
     - zsh
     - oh_my_zsh
     - plugins
+    - zsh_nvm
 
-- name: "Zsh | Install oh-my-zsh Theme - Spaceship"
+- name: "Oh-My-Zsh | Plugins | Install zsh-syntax-highlighting"
+  ansible.builtin.git:
+    repo: "git@github.com:zsh-users/zsh-syntax-highlighting.git"
+    dest: "{{ omz_plugins_dir }}/zsh-syntax-highlighting"
+    key_file: "{{ ssh_key }}"
+    update: true
+  tags:
+    - zsh
+    - oh_my_zsh
+    - plugins
+    - zsh_syntax_highlighting
+
+- name: "Oh-My-Zsh | Themes | Install Spaceship"
   ansible.builtin.git:
     repo: "git@github.com:spaceship-prompt/spaceship-prompt.git"
     dest: "{{ omz_themes_dir }}/spaceship-prompt"
@@ -69,4 +83,14 @@
   tags:
     - zsh
     - oh-my-zsh
+    - spaceship
+    - themes
+
+- name: "Oh-My-Zsh | Themes | Symlink Spaceship to custom themes directory"
+  shell: >-
+    ln -s "{{ omz_themes_dir }}/spaceship-prompt/spaceship.zsh-theme" "{{ omz_themes_dir }}/spaceship.zsh-theme"
+  tags:
+    - zsh
+    - oh-my-zsh
+    - spaceship
     - themes

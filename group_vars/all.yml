@@ -1,14 +1,10 @@
 default_roles:
-  # - lazygit # TODO
-  # - rust
-  - ssh
-  # - dotnet
-
-  # -- WORKING! --
   # - system
+  # - ssh
   # - fonts #TODO: Consolidate with system?
   # - alacritty
   # - brave
+  # - dotnet # TODO
   # - fastfetch
   # - firefox
   # - flameshot
@@ -17,22 +13,21 @@ default_roles:
   # - i3
   # - kdenlive
   # - keepassxc
+  # - lazygit # TODO
   # - neofetch
   # - neovim
   # - node
   # - obsidian
   # - onedrive
   # - postman
+  # - rust # TODO
   # - slack
   # - spotify
   # - thunderbird
   # - tmux
   # - wireshark
   # - zoom
-  # - zsh
-
-# TODO: Check for SSH key in pre_tasks
-ssh_key: "~/.ssh/id_ed25519"
+  - zsh
 
 # TODO: Prompt for fun_roles and run if yes
 fun_roles:
@@ -41,3 +36,6 @@ fun_roles:
   - steam
 
 github_username: mondyjosh
+
+# TODO: Check for SSH key in pre_tasks
+ssh_key: "~/.ssh/id_ed25519"

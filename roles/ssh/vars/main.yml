@@ -1,0 +1,4 @@
+ssh_dir: "{{ lookup('env', 'HOME') }}/.ssh"
+ssh_user: "{{ lookup('env', 'USER') }}"
+ssh_source_key: "./.ssh/id_ed25519"
+ssh_dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"

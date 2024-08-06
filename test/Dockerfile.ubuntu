@@ -1,8 +1,22 @@
-FROM ubuntu:latest
-ARG TAGS
+FROM ubuntu:latest AS base
 WORKDIR /usr/local/bin
-ARG DEBIAN_FRONTEND=noninteractive
-RUN apt update && apt install -y software-properties-common && apt-add-repository -y ppa:ansible/ansible && apt-add-repository -y ppa:zhangsongcui3371/fastfetch && apt update && apt install -y curl git ansible build-essential fastfetch
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y software-properties-common && \
+    apt-add-repository -y ppa:ansible/ansible && \
+    apt-add-repository -y ppa:zhangsongcui3371/fastfetch && \
+    apt-get update && \
+    apt-get install -y curl git ansible build-essential fastfetch && \
+    apt-get autoremove --yes
+
+FROM base AS mondyjosh
+ARG TAGS
+RUN addgroup --gid 1000 mondyjosh
+RUN adduser --gecos mondyjosh --uid 1000 --gid 1000 --disabled-password mondyjosh
+USER mondyjosh
+WORKDIR /home/mondyjosh
+
 ENV PATH="$PATH:/root/bin"
 COPY . .
 CMD ["sh", "-c", "ansible-playbook $TAGS local.yml"]

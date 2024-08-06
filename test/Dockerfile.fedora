@@ -1,7 +1,16 @@
-FROM fedora:latest
-ARG TAGS
+FROM fedora:latest AS base
 WORKDIR /usr/local/bin
-RUN dnf up -y && dnf install -y @development-tools curl git ansible fastfetch
+ARG TAGS
+RUN dnf up -y && \
+    dnf install -y @development-tools curl git ansible fastfetch
+
+FROM base AS mondyjosh
+ARG TAGS
+RUN addgroup --gid 1000 mondyjosh
+RUN adduser --gecos mondyjosh --uid 1000 --gid 1000 --disabled-password mondyjosh
+USER mondyjosh
+WORKDIR /home/mondyjosh
+
 COPY . .
 CMD ["sh", "-c", "ansible-playbook $TAGS local.yml"]
 

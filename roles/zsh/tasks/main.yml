@@ -32,7 +32,7 @@
     https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   args:
     chdir: /opt
-    creates: "{{ omz_dir }}"omz_themes_dir
+    creates: "{{ omz_dir }}"
   tags:
     - zsh
     - oh_my_zsh

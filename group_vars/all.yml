@@ -1,6 +1,6 @@
 default_roles:
   # - system
-  # - ssh
+  - ssh
   # - fonts #TODO: Consolidate with system?
   # - alacritty
   # - brave
@@ -27,7 +27,7 @@ default_roles:
   # - tmux
   # - wireshark
   # - zoom
-  - zsh
+  # - zsh
 
 # TODO: Prompt for fun_roles and run if yes
 fun_roles:
@@ -37,5 +37,4 @@ fun_roles:
 
 github_username: mondyjosh
 
-# TODO: Check for SSH key in pre_tasks
 ssh_key: "~/.ssh/id_ed25519"

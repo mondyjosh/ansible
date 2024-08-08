@@ -1,6 +1,5 @@
 # TODO: Ensure community.general is installed from ansible-galaxy
 # TODO: Establish must-haves prior to executing any roles
-# TODO: Check for SSH Keys
 
 - name: "Pre-Tasks | Set Distribution Config: {{ ansible_distribution }}"
   ansible.builtin.stat:

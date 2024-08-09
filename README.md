@@ -1,6 +1,8 @@
 # ansible
 
-Personal Ansible project to aid in the rapid setup of local systems.
+Workstation configuration for mondyjosh, powered by [Ansible](https://docs.ansible.com/)!
+
+This Anisible playbook aids in the rapid setup of local systems I plan on working on.
 
 ## Getting Started
 

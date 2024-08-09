@@ -7,7 +7,7 @@
 - name: "fonts | Ensure Hack Nerd Font exists"
   shell: "ls {{ lookup('env', 'HOME') }}/.fonts/Hack*Nerd*Font*Complete*"
   register: hack_exists
-  ignore_errors: yes
+  ignore_errors: true
 
 # TODO: Github equivalent task?
 - name: "fonts | Download Hack Nerd Font"
@@ -21,7 +21,7 @@
 - name: "fonts | Ensure FiraCode Nerd Font exists"
   shell: "ls {{ lookup('env', 'HOME') }}/.fonts/FiraCodeNerdFont*Regular*"
   register: hack_exists
-  ignore_errors: yes
+  ignore_errors: true
 
 # TODO: Github equivalent task?
 - name: "fonts | Download FiraCode Nerd Font"
@@ -30,4 +30,3 @@
     src: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/FiraCode.zip
     dest: "{{ lookup('env', 'HOME') }}/.fonts/"
     remote_src: yes
-

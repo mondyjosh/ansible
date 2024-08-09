@@ -1,6 +1,3 @@
-# TODO: Ensure community.general is installed from ansible-galaxy
-# TODO: Establish must-haves prior to executing any roles
-
 - name: "Pre-Tasks | Set Distribution Config: {{ ansible_distribution }}"
   ansible.builtin.stat:
     path: "pre_tasks/{{ ansible_distribution }}.yml"
@@ -39,8 +36,11 @@
     - pre-tasks
 
 - name: "chezmoi | Pull and apply {{ github_username }} dotfiles"
-  shell: >-
-    chezmoi init https://github.com/{{ github_username }}/dotfiles.git --apply
+  ansible.builtin.expect:
+    command: chezmoi init https://github.com/{{ github_username }}/dotfiles.git --apply
+    responses:
+      (?i)Enter passphrase: "{{ chezmoi_passphrase }}"
+  no_log: true
   args:
     creates: "~/.local/share/chezmoi"
   tags:
@@ -48,4 +48,3 @@
     - dotfiles
     - install
     - pre-tasks
-

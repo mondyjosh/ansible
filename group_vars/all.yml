@@ -1,36 +1,34 @@
-default_roles:
-  # - system
-  - ssh
-  # - fonts #TODO: Consolidate with system?
-  # - alacritty
-  # - brave
+workstation_roles:
+  - system
+  - fonts
+  - alacritty
+  - brave
   # - dotnet # TODO
-  # - fastfetch
-  # - firefox
-  # - flameshot
-  # - gimp
-  # - git
-  # - i3
-  # - kdenlive
-  # - keepassxc
+  - fastfetch
+  - firefox
+  - flameshot
+  - gimp
+  - git
+  - i3
+  - kdenlive
+  - keepassxc
   # - lazygit # TODO
-  # - neofetch
-  # - neovim
-  # - node
-  # - obsidian
-  # - onedrive
-  # - postman
+  - neofetch
+  - neovim
+  - node
+  - obsidian
+  - onedrive
+  - postman
   # - rust # TODO
-  # - slack
-  # - spotify
-  # - thunderbird
-  # - tmux
-  # - wireshark
-  # - zoom
-  # - zsh
+  - slack
+  - spotify
+  - thunderbird
+  - tmux
+  - wireshark
+  - zoom
+  - zsh
 
-# TODO: Prompt for fun_roles and run if yes
-fun_roles:
+playstation_roles:
   - discord
   - signal
   - steam

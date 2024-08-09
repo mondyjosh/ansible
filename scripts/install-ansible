@@ -8,17 +8,16 @@ CORE_PACKAGES="curl git ansible ansible-lint"
 
 # Install ansible bootstrap packages (sure, it's clunky, but it works in a pinch)
 if [[ ! -z $APT_GET_CMD ]]; then
-   sudo apt-add-repository -y ppa:ansible/ansible
-   sudo apt-get update -y
-   sudo apt-get install -y $CORE_PACKAGES software-properties-common 
+    sudo apt-add-repository -y ppa:ansible/ansible
+    sudo apt-get update -y
+    sudo apt-get install -y $CORE_PACKAGES software-properties-common
 elif [[ ! -z $DNF_CMD ]]; then
-   dnf up -y 
-   dnf install -y $CORE_PACKAGES @development-tools
+    dnf up -y
+    dnf install -y $CORE_PACKAGES @development-tools
 else
-   echo "error can't install package $PACKAGE"
-   exit 1;
+    echo "error can't install package $PACKAGE"
+    exit 1
 fi
 
 # install community.general from ansible-galaxy
 ansible-galaxy collection install community.general
-

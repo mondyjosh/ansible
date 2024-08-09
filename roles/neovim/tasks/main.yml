@@ -47,7 +47,3 @@
     - install
     - lua
     - neovim_plugins
-
-# TODO: Install nerd font (for lazyvim; other role)
-# TODO: Install lazygit (for lazyvim)
-# TODO: Install alacritty (for lazyvim; other role)

@@ -16,6 +16,10 @@ Run `./scripts/build-dockers` to build Docker images for developing/testing Ansi
 
 After building the Docker images, use `docker run --rm -it <tag_name> bash` to init a new ephemeral session with the image (New changes - package installs, config changes, etc. - will be reset upon exiting the Docker session, so have fun!)
 
+## Configuration
+
+Configuration is provided via [my dotfiles repository](https://github.com/mondyjosh/dotfiles). Chezmoi is the dotfile manager of choice, and is installed as part of this playbook's pre-tasks.
+
 ## References
 
 - [Ansible Community Documentation](https://docs.ansible.com/) - main documentation portal for Ansible

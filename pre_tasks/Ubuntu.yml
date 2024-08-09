@@ -1,0 +1,23 @@
+- name: "Pre-Tasks | {{ ansible_distribution }} | Update Cache"
+  ansible.builtin.apt:
+    update_cache: true
+  become: true
+  tags:
+    - system
+
+- name: "Flatpak | {{ ansible_distribution }} | Flatpak - Flatpak"
+  ansible.builtin.apt:
+    name: flatpak
+    state: present
+  become: true
+  tags:
+    - install
+    - flatpak
+
+- name: "Flatpak | {{ ansible_distribution }} | Install Software Plugin"
+  ansible.builtin.apt:
+    name: gnome-software-plugin-flatpak
+    state: present
+  tags:
+    - flatpak
+    - plugin

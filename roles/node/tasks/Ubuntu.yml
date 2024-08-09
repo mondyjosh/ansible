@@ -1,0 +1,8 @@
+- name: "Node | {{ ansible_distribution }} | Install Node Dependencies"
+  ansible.builtin.apt:
+    name:
+      - nodejs
+      - npm
+  tags:
+    - install
+    - node

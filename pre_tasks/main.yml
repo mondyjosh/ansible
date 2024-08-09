@@ -1,0 +1,50 @@
+- name: "Pre-Tasks | Set Distribution Config: {{ ansible_distribution }}"
+  ansible.builtin.stat:
+    path: "pre_tasks/{{ ansible_distribution }}.yml"
+  register: pre_tasks_distribution_config
+  tags:
+    - pre-tasks
+
+- name: "Pre-Tasks | {{ansible_distribution}} | Install Dependencies"
+  ansible.builtin.include_tasks: "{{ ansible_distribution }}.yml"
+  when: pre_tasks_distribution_config.stat.exists
+  tags:
+    - pre-tasks
+
+- name: "Flatpak | Add Flathub Repository"
+  community.general.flatpak_remote:
+    name: flathub
+    state: present
+    flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+  tags:
+    - flatpak
+    - flathub
+    - pre-tasks
+    - repos
+
+- name: "chezmoi | Install"
+  shell: >-
+    sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/bin
+  args:
+    chdir: ~
+    creates: ~/bin/chezmoi
+  register: chezmoi
+  tags:
+    - chezmoi
+    - dotfiles
+    - install
+    - pre-tasks
+
+- name: "chezmoi | Pull and apply {{ github_username }} dotfiles"
+  ansible.builtin.expect:
+    command: chezmoi init https://github.com/{{ github_username }}/dotfiles.git --apply
+    responses:
+      (?i)Enter passphrase: "{{ chezmoi_passphrase }}"
+  no_log: true
+  args:
+    creates: "~/.local/share/chezmoi"
+  tags:
+    - chezmoi
+    - dotfiles
+    - install
+    - pre-tasks

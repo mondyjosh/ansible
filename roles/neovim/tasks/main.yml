@@ -1,0 +1,49 @@
+- name: "Neovim | Set Distribution Config: {{ ansible_distribution }}"
+  ansible.builtin.stat:
+    path: "{{ role_path }}/tasks/{{ ansible_distribution }}.yml"
+  register: neovim_distribution_config
+  tags:
+    - neovim
+
+- name: "Neovim | {{ansible_distribution}} | Run Tasks"
+  ansible.builtin.include_tasks: "{{ ansible_distribution }}.yml"
+  when: neovim_distribution_config.stat.exists
+  tags:
+    - install
+    - neovim
+
+- name: "Neovim | Clone Nightly"
+  ansible.builtin.git:
+    repo: "git@github.com:neovim/neovim.git"
+    dest: "{{ neovim_dir }}"
+    key_file: "{{ ssh_key }}"
+    version: "nightly"
+    update: true
+  tags:
+    - install
+    - neovim
+
+- name: "Neovim | Build Nightly with Debug Info"
+  shell: "make CMAKE_BUILD_TYPE=RelWithDebInfo"
+  args:
+    chdir: "{{ neovim_dir }}"
+  tags:
+    - install
+    - neovim
+
+- name: "Neovim | Install Nightly"
+  become: true
+  shell: "make install"
+  args:
+    chdir: "{{ neovim_dir }}"
+  tags:
+    - install
+    - neovim
+
+- name: "Neovim | Plugin Development - Install Luacheck"
+  become: true
+  shell: "luarocks install luacheck"
+  tags:
+    - install
+    - lua
+    - neovim_plugins

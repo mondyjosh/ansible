@@ -1,0 +1,96 @@
+- name: "Zsh | Remove oh-my-zsh Plugins and Themes"
+  become: true
+  shell: rm -rf {{ omz_plugins_dir }}/* {{ omz_themes_dir }}/*
+  tags:
+    - cleanup
+    - zsh
+    - oh_my_zsh
+
+- name: "Zsh | Set Distribution Config: {{ ansible_distribution }}"
+  ansible.builtin.stat:
+    path: "{{ role_path }}/tasks/{{ ansible_distribution }}.yml"
+  register: zsh_distribution_config
+  tags:
+    - zsh
+
+- name: "Zsh | {{ansible_distribution}} | Run Tasks"
+  ansible.builtin.include_tasks: "{{ ansible_distribution }}.yml"
+  when: zsh_distribution_config.stat.exists
+  tags:
+    - zsh
+    - install
+
+- name: "Zsh | Set Zsh as Default Shell for Users"
+  become: true
+  shell: chsh -s /bin/zsh
+  tags:
+    - zsh
+
+- name: "Zsh | Install Oh-My-Zsh"
+  shell: >-
+    sh -c "$(curl -fsSL
+    https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  args:
+    chdir: /opt
+    creates: "{{ omz_dir }}"
+  tags:
+    - zsh
+    - oh_my_zsh
+
+- name: "Oh-My-Zsh | Plugins | Install zsh-autosuggestions"
+  ansible.builtin.git:
+    repo: "git@github.com:zsh-users/zsh-autosuggestions.git"
+    dest: "{{ omz_plugins_dir }}/zsh-autosuggestions"
+    key_file: "{{ ssh_key }}"
+    update: true
+  tags:
+    - zsh
+    - oh_my_zsh
+    - plugins
+    - zsh_autosuggestions
+
+- name: "Oh-My-Zsh | Plugins | Install zsh-nvm"
+  ansible.builtin.git:
+    repo: "git@github.com:lukechilds/zsh-nvm.git"
+    dest: "{{ omz_plugins_dir }}/zsh-nvm"
+    key_file: "{{ ssh_key }}"
+    update: true
+  tags:
+    - zsh
+    - oh_my_zsh
+    - plugins
+    - zsh_nvm
+
+- name: "Oh-My-Zsh | Plugins | Install zsh-syntax-highlighting"
+  ansible.builtin.git:
+    repo: "git@github.com:zsh-users/zsh-syntax-highlighting.git"
+    dest: "{{ omz_plugins_dir }}/zsh-syntax-highlighting"
+    key_file: "{{ ssh_key }}"
+    update: true
+  tags:
+    - zsh
+    - oh_my_zsh
+    - plugins
+    - zsh_syntax_highlighting
+
+- name: "Oh-My-Zsh | Themes | Install Spaceship"
+  ansible.builtin.git:
+    repo: "git@github.com:spaceship-prompt/spaceship-prompt.git"
+    dest: "{{ omz_themes_dir }}/spaceship-prompt"
+    key_file: "{{ ssh_key }}"
+    update: true
+    depth: 1
+  tags:
+    - zsh
+    - oh-my-zsh
+    - spaceship
+    - themes
+
+- name: "Oh-My-Zsh | Themes | Symlink Spaceship to custom themes directory"
+  shell: >-
+    ln -s "{{ omz_themes_dir }}/spaceship-prompt/spaceship.zsh-theme" "{{ omz_themes_dir }}/spaceship.zsh-theme"
+  tags:
+    - zsh
+    - oh-my-zsh
+    - spaceship
+    - themes

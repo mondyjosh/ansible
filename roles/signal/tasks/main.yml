@@ -1,0 +1,8 @@
+- name: "Signal | Install"
+  community.general.flatpak:
+    name: org.signal.Signal
+    state: present
+  tags:
+    - flatpak
+    - install
+    - signal

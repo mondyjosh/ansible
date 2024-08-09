@@ -1,0 +1,3 @@
+omz_dir: "{{ lookup('env', 'HOME') }}/.oh-my-zsh"
+omz_plugins_dir: "{{ lookup('env', 'HOME') }}/.oh-my-zsh/custom/plugins"
+omz_themes_dir: "{{ lookup('env', 'HOME') }}/.oh-my-zsh/custom/themes"

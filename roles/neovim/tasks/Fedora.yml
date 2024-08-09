@@ -1,0 +1,38 @@
+- name: "Neovim | {{ ansible_distribution }} | Install Build Dependencies"
+  become: true
+  ansible.builtin.dnf:
+    name:
+      - ninja-build
+      - cmake
+      - gcc
+      - make
+      - unzip
+      - gettext
+      - curl
+      - glibc-gconv-extra
+    state: present
+  tags:
+    - install
+    - neovim
+
+- name: "Neovim | {{ ansible_distribution }} | Install LazyVim Dependencies"
+  become: true
+  ansible.builtin.dnf:
+    name:
+      - ripgrep
+      - fd-find
+      - git
+  tags:
+    - install
+    - neovim
+    - neovim_lazyvim
+
+- name: "Neovim | {{ ansible_distribution }} | Install Plugin Development Dependencies"
+  become: true
+  ansible.builtin.dnf:
+    name: luarocks
+  tags:
+    - install
+    - lua
+    - neovim
+    - neovim_plugins

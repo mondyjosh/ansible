@@ -1,0 +1,8 @@
+- name: "KeePassXC | Install"
+  community.general.flatpak:
+    name: org.keepassxc.KeePassXC
+    state: present
+  tags:
+    - flatpak
+    - install
+    - keepassxc

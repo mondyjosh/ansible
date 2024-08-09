@@ -1,0 +1,36 @@
+- name: "Neovim | {{ ansible_distribution }} | Install Build Prerequisites"
+  become: true
+  ansible.builtin.apt:
+    name:
+      - ninja-build
+      - gettext
+      - cmake
+      - unzip
+      - curl
+      - build-essential
+    state: present
+  tags:
+    - install
+    - neovim
+
+- name: "Neovim | {{ ansible_distribution }} | Install LazyVim Dependencies"
+  become: true
+  ansible.builtin.apt:
+    name:
+      - ripgrep
+      - fd-find
+      - git
+  tags:
+    - install
+    - neovim
+    - neovim_lazyvim
+
+- name: "Neovim | {{ ansible_distribution }} | Install Plugin Development Dependencies"
+  become: true
+  ansible.builtin.apt:
+    name: luarocks
+  tags:
+    - install
+    - lua
+    - neovim
+    - neovim_plugins

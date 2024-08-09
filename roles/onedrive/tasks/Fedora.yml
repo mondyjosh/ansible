@@ -1,0 +1,14 @@
+- name: "OneDrive | {{ ansible_distribution }} | Install onedrive"
+  become: true
+  ansible.builtin.dnf:
+    name:
+      - onedrive
+  tags:
+    - install
+    - onedrive
+# TODO: Get OneDrive connected and syncing
+
+# TODO: Figure out how to get OneDrive GUI working:
+# --
+# Download the latest OneDriveGUI-*-x86_64.AppImage from the release assets
+# Make the .AppImage file executable with chmod +x ./OneDriveGUI-<**version**>-x86_64.AppImage and run it.

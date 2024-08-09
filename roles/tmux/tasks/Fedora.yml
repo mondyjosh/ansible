@@ -1,0 +1,8 @@
+- name: "tmux | {{ ansible_distribution }} | Install tmux"
+  become: true
+  ansible.builtin.dnf:
+    name:
+      - tmux
+  tags:
+    - install
+    - tmux

@@ -1,0 +1,27 @@
+- name: "Node | Set Distribution Config: {{ ansible_distribution }}"
+  ansible.builtin.stat:
+    path: "{{ role_path }}/tasks/{{ ansible_distribution }}.yml"
+  register: node_distribution_config
+  tags:
+    - node
+
+- name: "Node | {{ansible_distribution}} | Run Tasks"
+  ansible.builtin.include_tasks: "{{ ansible_distribution }}.yml"
+  when: node_distribution_config.stat.exists
+  tags:
+    - install
+    - node
+
+- name: "Node | Install n version manager"
+  npm:
+    name: "n"
+    global: true
+  tags:
+    - install
+    - node
+
+- name: "Node | Install Node 14"
+  shell: n 14
+  tags:
+    - install
+    - node

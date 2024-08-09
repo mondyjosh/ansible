@@ -1,0 +1,43 @@
+- name: "System | {{ ansible_distribution }} | Install System Packages"
+  become: true
+  ansible.builtin.apt:
+    name:
+      - build-essential
+      - ccache
+      - clang
+      - clangd
+      - cmake
+      - curl
+      - dconf-editor
+      - gettext
+      - golang
+      - htop
+      - libtool
+      - libtool-bin
+      - lsof
+      - lua5.1
+      - moreutils
+      - ninja-build
+      - nvidia-settings
+      - pavucontrol
+      - picom
+      - pkg-config
+      - python3-pip
+      - unzip
+  tags:
+    - install
+    - system
+
+- name: "System | {{ ansible_distribution }} | Install Productivity Tools"
+  become: true
+  ansible.builtin.apt:
+    name:
+      - fd-find
+      - fzf
+      - ripgrep
+      - tldr
+      - xclip
+  tags:
+    - install
+    - productivity
+    - system

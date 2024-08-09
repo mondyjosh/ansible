@@ -1,0 +1,40 @@
+- name: "System | {{ ansible_distribution }} | Install System Packages"
+  become: true
+  ansible.builtin.dnf:
+    name:
+      - "@development-tools"
+      - ccache
+      - clang
+      - clang-tools-extra
+      - cmake
+      - curl
+      - dconf-editor
+      - gettext
+      - golang
+      - htop
+      - libtool
+      - lsof
+      - lua5.1
+      - moreutils
+      - ninja-build
+      - picom
+      - pavucontrol
+      - pkg-config
+      - python3-pip
+      - unzip
+  tags:
+    - install
+    - system
+
+- name: "System | {{ ansible_distribution }} | Install Productivity Tools"
+  become: true
+  ansible.builtin.dnf:
+    name:
+      - fd-find
+      - fzf
+      - ripgrep
+      - tldr
+      - xclip
+  tags:
+    - install
+    - productivity

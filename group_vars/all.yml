@@ -1,0 +1,39 @@
+workstation_roles:
+  - system
+  - fonts
+  - alacritty
+  - brave
+  # - dotnet # TODO
+  - fastfetch
+  - firefox
+  - flameshot
+  # - gh # TODO
+  - gimp
+  - git
+  - i3
+  - kdenlive
+  - keepassxc
+  # - lazygit # TODO
+  - neofetch
+  - neovim
+  - node
+  - obsidian
+  - onedrive
+  - postman
+  # - rust # TODO
+  - slack
+  - spotify
+  - thunderbird
+  - tmux
+  - wireshark
+  - zoom
+  - zsh
+
+playstation_roles:
+  - discord
+  - signal
+  - steam
+
+github_username: mondyjosh
+
+ssh_key: "~/.ssh/id_ed25519"

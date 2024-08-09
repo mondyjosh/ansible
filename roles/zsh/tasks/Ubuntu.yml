@@ -1,0 +1,7 @@
+- name: "Zsh | {{ ansible_distribution }} | Install Zsh"
+  ansible.builtin.apt:
+    name: zsh
+    state: present
+  become: true
+  tags:
+    - zsh

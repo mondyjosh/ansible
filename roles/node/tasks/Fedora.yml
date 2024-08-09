@@ -1,0 +1,9 @@
+- name: "Node | {{ ansible_distribution }} | Install Node Dependencies"
+  ansible.builtin.dnf:
+    name:
+      - node
+      - npm
+  tags:
+    - install
+    - node
+

@@ -1,0 +1,8 @@
+- name: "GIMP | Install"
+  community.general.flatpak:
+    name: org.gimp.GIMP
+    state: present
+  tags:
+    - flatpak
+    - gimp
+    - install

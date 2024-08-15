@@ -1,0 +1,16 @@
+- name: "Neovim | Set Distribution Config: {{ ansible_distribution }}"
+  ansible.builtin.stat:
+    path: "{{ role_path }}/tasks/{{ ansible_distribution }}.yml"
+  register: nvidia_distribution_config
+  tags:
+    - drivers
+    - install
+    - nvidia
+
+- name: "Neovim | {{ansible_distribution}} | Run Tasks"
+  ansible.builtin.include_tasks: "{{ ansible_distribution }}.yml"
+  when: nvidia_distribution_config.stat.exists
+  tags:
+    - drivers
+    - install
+    - nvidia

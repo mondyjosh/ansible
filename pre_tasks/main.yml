@@ -48,3 +48,7 @@
     - dotfiles
     - install
     - pre-tasks
+
+
+- name: "SSH | Add SSH Key to SSH Agent"
+  shell: ssh-add ~/.ssh/id_ed25519

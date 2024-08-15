@@ -1,33 +1,35 @@
 workstation_roles:
-  - system
-  - fonts
-  - alacritty
-  - brave
+  #- alacritty
   # - dotnet # TODO
-  - fastfetch
-  - firefox
-  - flameshot
   # - gh # TODO
-  - gimp
-  - git
-  - i3
-  - kdenlive
-  - keepassxc
   # - lazygit # TODO
-  - neofetch
   - neovim
-  - node
-  - obsidian
-  - onedrive
-  - postman
+  # - node
   # - rust # TODO
-  - slack
-  - spotify
-  - thunderbird
-  - tmux
-  - wireshark
-  - zoom
   - zsh
+
+  ### Success!
+  # - system
+  #- fonts
+  # - brave
+  # - fastfetch
+  # - firefox
+  # - flameshot
+  # - gimp
+  # - git
+  # - i3
+  # - kdenlive
+  # - keepassxc
+  # - obsidian
+  # - onedrive
+  # - postman
+  # - slack
+  # - spotify
+  # - thunderbird
+  # - tmux
+  # - wireshark
+  # - zoom
+
 
 playstation_roles:
   - discord

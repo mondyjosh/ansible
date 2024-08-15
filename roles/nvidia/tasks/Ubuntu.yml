@@ -1,0 +1,16 @@
+# TODO: NVIDIA Drivers install for Ubuntu
+
+#- name: "Neovim | {{ ansible_distribution }} | Install Build Prerequisites"
+#  become: true
+#  ansible.builtin.apt:
+#    name:
+#      - ninja-build
+#      - gettext
+#      - cmake
+#      - unzip
+#      - curl
+#      - build-essential
+#    state: present
+#  tags:
+#   - install
+#   - neovim

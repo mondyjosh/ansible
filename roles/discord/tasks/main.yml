@@ -1,3 +1,5 @@
+## 2025-01-02: Switching from Flatpak to RPM Module on Fedora for a while to show "So-and-so is playing X" via Steam/Spotify. Will update this role if the change sticks.
+
 - name: "Discord | Install"
   community.general.flatpak:
     name: com.discordapp.Discord

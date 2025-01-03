@@ -1,0 +1,8 @@
+- name: "MangoHud | {{ ansible_distribution }} | Install MangoHud"
+  ansible.builtin.dnf:
+    name:
+      - mangohud
+  tags:
+    - install
+    - mangohud
+

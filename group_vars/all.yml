@@ -9,26 +9,26 @@ workstation_roles:
   - zsh
 
   ### Success!
-  # - system
-  #- fonts
-  # - brave
-  # - fastfetch
-  # - firefox
-  # - flameshot
-  # - gimp
-  # - git
-  # - i3
-  # - kdenlive
-  # - keepassxc
-  # - obsidian
-  # - onedrive
-  # - postman
-  # - slack
-  # - spotify
-  # - thunderbird
-  # - tmux
-  # - wireshark
-  # - zoom
+  - system
+  - fonts
+  - brave
+  - fastfetch
+  - firefox
+  - flameshot
+  - gimp
+  - git
+  - i3
+  - kdenlive
+  - keepassxc
+  - obsidian
+  - onedrive
+  - postman
+  - slack
+  - spotify
+  - thunderbird
+  - tmux
+  - wireshark
+  - zoom
 
 
 playstation_roles:

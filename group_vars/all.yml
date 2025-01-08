@@ -1,5 +1,6 @@
 workstation_roles:
-  #- alacritty
+  # - android/adb # TODO
+  # - alacritty
   # - dotnet # TODO
   # - gh # TODO
   # - lazygit # TODO
@@ -33,6 +34,7 @@ workstation_roles:
 
 playstation_roles:
   - discord
+  - mangohud
   - signal
   - steam
 

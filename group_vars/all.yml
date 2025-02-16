@@ -35,6 +35,7 @@ workstation_roles:
 playstation_roles:
   - discord
   - mangohud
+  # - phoronix # TODO (don't forget to install PHP)
   - signal
   - steam
 

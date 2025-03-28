@@ -3,10 +3,6 @@
   connection: local
 
   vars_prompt:
-    - name: chezmoi_passphrase
-      prompt: Chezmoi passphrase (ignore if chezmoi is already installed)
-      private: true
-
     - name: include_playstation_roles
       prompt: Include playstation roles [yes/no]
 

@@ -12,19 +12,19 @@
     - install
     - neovim
 
-- name: "Neovim | Clone Nightly"
+- name: "Neovim | Clone Stable"
   become: true
   ansible.builtin.git:
     repo: "git@github.com:neovim/neovim.git"
     dest: "{{ neovim_dir }}"
     key_file: "{{ ssh_key }}"
-    version: "nightly"
+    version: "stable"
     update: true
   tags:
     - install
     - neovim
 
-- name: "Neovim | Build Nightly with Debug Info"
+- name: "Neovim | Build Stable with Debug Info"
   become: true
   shell: "make CMAKE_BUILD_TYPE=RelWithDebInfo"
   args:
@@ -33,7 +33,7 @@
     - install
     - neovim
 
-- name: "Neovim | Install Nightly"
+- name: "Neovim | Install Stable"
   become: true
   shell: "make install"
   args:

@@ -1,1 +1,1 @@
-neovim_dir: "{{ lookup('env', 'HOME') }}/neovim"
+neovim_dir: "{{ lookup('env', 'HOME') }}/dev/neovim"

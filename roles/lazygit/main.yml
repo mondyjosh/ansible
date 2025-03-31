@@ -1,0 +1,14 @@
+- name: "Lazygit | Set Distribution Config: {{ ansible_distribution }}"
+  ansible.builtin.stat:
+    path: "{{ role_path }}/tasks/{{ ansible_distribution }}.yml"
+  register: lazygit_distribution_config
+  tags:
+    - lazygit
+
+- name: "Lazygit | {{ansible_distribution}} | Run Tasks"
+  ansible.builtin.include_tasks: "{{ ansible_distribution }}.yml"
+  when: lazygit_distribution_config.stat.exists
+  tags:
+    - lazygit
+    - install
+

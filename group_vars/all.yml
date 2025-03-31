@@ -3,7 +3,7 @@ workstation_roles:
   # - alacritty
   # - dotnet # TODO
   # - gh # TODO
-  # - lazygit # TODO
+  - lazygit
   - neovim
   # - node
   # - rust # TODO

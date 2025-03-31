@@ -2,18 +2,27 @@
   hosts: localhost
   connection: local
 
-  vars_prompt:
-    - name: include_playstation_roles
-      prompt: Include playstation roles [yes/no]
+  # vars_prompt:
+  #   - name: include_playstation_roles
+  #     prompt: Include playstation roles [yes/no]
+
+
 
   pre_tasks:
     - name: "Execute Pre-Tasks"
       ansible.builtin.include_tasks: pre_tasks/main.yml
 
   tasks:
-    - name: "Set roles - {{ include_playstation_roles|bool | ternary('🕹️ Play Mode', '👔 Business Mode ') }}"
+    # - name: "Set roles - {{ include_playstation_roles|bool | ternary('🕹️ Play Mode', '👔 Business Mode ') }}"
+    #   ansible.builtin.set_fact:
+    #     run_roles: "{{ ansible_run_tags != ['all'] and ansible_run_tags or include_playstation_roles|bool | ternary(workstation_roles + playstation_roles, workstation_roles)  | difference(exclude_roles | default([])) }}"
+    #   tags:
+    #     - always
+    #     - workstation
+
+    - name: "Set roles - 👔 Workstation"
       ansible.builtin.set_fact:
-        run_roles: "{{ ansible_run_tags != ['all'] and ansible_run_tags or include_playstation_roles|bool | ternary(workstation_roles + playstation_roles, workstation_roles)  | difference(exclude_roles | default([])) }}"
+        run_roles: "{{ workstation_roles }}"
       tags:
         - always
         - workstation

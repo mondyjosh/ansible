@@ -19,7 +19,9 @@
     name:
       - ripgrep
       - fd-find
+      - fzf
       - git
+      # - lazygit
   tags:
     - install
     - neovim

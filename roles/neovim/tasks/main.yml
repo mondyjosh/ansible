@@ -13,6 +13,7 @@
     - neovim
 
 - name: "Neovim | Clone Nightly"
+  become: true
   ansible.builtin.git:
     repo: "git@github.com:neovim/neovim.git"
     dest: "{{ neovim_dir }}"
@@ -24,6 +25,7 @@
     - neovim
 
 - name: "Neovim | Build Nightly with Debug Info"
+  become: true
   shell: "make CMAKE_BUILD_TYPE=RelWithDebInfo"
   args:
     chdir: "{{ neovim_dir }}"

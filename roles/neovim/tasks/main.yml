@@ -12,36 +12,78 @@
     - install
     - neovim
 
-- name: "Neovim | Clone Stable"
-  become: true
+- name: "Neovim | Clone stable branch"
   ansible.builtin.git:
     repo: "git@github.com:neovim/neovim.git"
     dest: "{{ neovim_dir }}"
-    key_file: "{{ ssh_key }}"
+    key_file: "{{ ssh_key | expanduser }}"
     version: "stable"
     update: true
+  register: git_result
   tags:
     - install
     - neovim
 
-- name: "Neovim | Build Stable with Debug Info"
+- name: "Neovim | Get stable branch HEAD SHA"
+  command: git rev-parse HEAD
+  args:
+    chdir: "{{ neovim_dir }}"
+  register: current_sha
+  changed_when: false
+  tags:
+    - install
+    - neovim
+
+- name: "Neovim | Read previous build SHA"
+  ansible.builtin.slurp:
+    src: "{{ neovim_dir }}/.neovim_build_sha"
+  register: saved_sha_file
+  ignore_errors: yes 
+  tags:
+    - install
+    - neovim
+
+- name: "Neovim | Set fact: previous build SHA"
+  set_fact:
+    saved_sha: "{{saved_sha_file.content | b64decode | trim }}"
+  when: saved_sha_file is succeeded
+  tags:
+    - install
+    - neovim
+
+# If the stable branch's HEAD SHA has changed, time for a new build
+- name: "Neovim | Build stable with Debug Info"
   become: true
   shell: "make CMAKE_BUILD_TYPE=RelWithDebInfo"
   args:
     chdir: "{{ neovim_dir }}"
+  when: saved_sha != current_sha.stdout
   tags:
     - install
     - neovim
 
-- name: "Neovim | Install Stable"
+# If the stable branch's HEAD SHA has changed, install new build 
+- name: "Neovim | Install new stable build"
   become: true
   shell: "make install"
   args:
     chdir: "{{ neovim_dir }}"
+  when: saved_sha != current_sha.stdout
   tags:
     - install
     - neovim
 
+- name: "Neovim | Save new build SHA"
+  ansible.builtin.copy:
+    content: "{{ current_sha.stdout }}"
+    dest: "{{ neovim_dir }}/.neovim_build_sha"
+    mode: '0644'
+  when: saved_sha != current_sha.stdout
+  tags:
+    - install
+    - neovim
+
+# If the stable- name: "Neovim | Save current build's HEAD commit SHA"
 - name: "Neovim | Plugin Development - Install Luacheck"
   become: true
   shell: "luarocks install luacheck"

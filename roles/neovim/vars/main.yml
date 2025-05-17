@@ -1,1 +1,2 @@
 neovim_dir: "{{ lookup('env', 'HOME') }}/dev/neovim"
+neovim_last_sha_file: "{{ neovim_dir }}/.neovim_build_sha"

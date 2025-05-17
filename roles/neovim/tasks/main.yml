@@ -19,6 +19,8 @@
     key_file: "{{ ssh_key | expanduser }}"
     version: "stable"
     update: true
+    force: true
+    refspec: "+refs/tags/*:refs/tags/*"
   register: git_result
   tags:
     - install
@@ -34,19 +36,35 @@
     - install
     - neovim
 
-- name: "Neovim | Read previous build SHA"
-  ansible.builtin.slurp:
-    src: "{{ neovim_dir }}/.neovim_build_sha"
-  register: saved_sha_file
-  ignore_errors: yes 
+- name: "Neovim | Init last_sha to empty"
+  set_fact:
+    last_sha: ""
+  no_log: true
   tags:
     - install
     - neovim
 
-- name: "Neovim | Set fact: previous build SHA"
+- name: "Neovim | Check for last build SHA file"
+  stat:
+    path: "{{ neovim_last_sha_file }}"
+  register: sha_file
+  tags:
+    - install
+    - neovim
+
+- name: "Neovim | Read last build SHA"
+  ansible.builtin.slurp:
+    src: "{{ neovim_dir }}/.neovim_build_sha"
+  register: last_sha_file
+  when: sha_file.stat.exists
+  tags:
+    - install
+    - neovim
+
+- name: "Neovim | Set fact: last build SHA"
   set_fact:
-    saved_sha: "{{saved_sha_file.content | b64decode | trim }}"
-  when: saved_sha_file is succeeded
+    last_sha: "{{ last_sha_file.content | b64decode | trim }}" 
+  when: last_sha_file is defined and ('content' in last_sha_file)
   tags:
     - install
     - neovim
@@ -57,7 +75,7 @@
   shell: "make CMAKE_BUILD_TYPE=RelWithDebInfo"
   args:
     chdir: "{{ neovim_dir }}"
-  when: saved_sha != current_sha.stdout
+  when: last_sha != current_sha.stdout
   tags:
     - install
     - neovim
@@ -68,7 +86,7 @@
   shell: "make install"
   args:
     chdir: "{{ neovim_dir }}"
-  when: saved_sha != current_sha.stdout
+  when: last_sha != current_sha.stdout
   tags:
     - install
     - neovim
@@ -78,7 +96,7 @@
     content: "{{ current_sha.stdout }}"
     dest: "{{ neovim_dir }}/.neovim_build_sha"
     mode: '0644'
-  when: saved_sha != current_sha.stdout
+  when: last_sha != current_sha.stdout
   tags:
     - install
     - neovim

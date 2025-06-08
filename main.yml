@@ -1,3 +1,4 @@
+# Run this playbook with: ansible-playbook main.yml -K
 - name: "Workstation Setup - mondyjosh"
   hosts: localhost
   connection: local

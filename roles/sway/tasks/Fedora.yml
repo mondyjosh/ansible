@@ -1,0 +1,8 @@
+- name: "sway | {{ ansible_distribution }} | Install sway"
+  become: true
+  ansible.builtin.dnf:
+    name:
+      - sway
+  tags:
+    - install
+    - sway

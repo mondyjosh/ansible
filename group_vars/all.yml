@@ -18,7 +18,6 @@ workstation_roles:
   - flameshot
   - gimp
   - git
-  - i3
   - kdenlive
   - keepassxc
   - obsidian
@@ -26,6 +25,7 @@ workstation_roles:
   - postman
   - slack
   - spotify
+  - sway
   - thunderbird
   - tmux
   - wireshark

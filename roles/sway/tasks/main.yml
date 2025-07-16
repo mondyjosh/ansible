@@ -1,0 +1,13 @@
+- name: "sway | Set Distribution Config: {{ ansible_distribution }}"
+  ansible.builtin.stat:
+    path: "{{ role_path }}/tasks/{{ ansible_distribution }}.yml"
+  register: sway_config
+  tags:
+    - sway
+
+- name: "sway | {{ ansible_distribution }} | Run Tasks"
+  ansible.builtin.include_tasks: "{{ ansible_distribution }}.yml"
+  when: sway_config.stat.exists
+  tags:
+    - install
+    - sway

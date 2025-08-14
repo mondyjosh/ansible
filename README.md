@@ -20,7 +20,7 @@ After building the Docker images, use `docker run --rm -it <tag_name> bash` to i
 
 ## Configuration
 
-Configuration is provided via [my dotfiles repository](https://github.com/mondyjosh/dotfiles). Chezmoi is the dotfile manager of choice, and is installed as part of this playbook's pre-tasks.
+Configuration is provided via [my dotfiles repository](https://github.com/mondyjosh/dotfiles).
 
 ## References
 

@@ -12,7 +12,6 @@ workstation_roles:
   ### Success!
   - system
   - fonts
-  - brave
   - fastfetch
   - firefox
   - flameshot

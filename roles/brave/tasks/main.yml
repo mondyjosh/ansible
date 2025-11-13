@@ -1,8 +1,0 @@
-- name: "Brave | Install"
-  community.general.flatpak:
-    name: com.brave.Browser
-    state: present
-  tags:
-    - brave
-    - flatpak
-    - install

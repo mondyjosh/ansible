@@ -1,0 +1,36 @@
+- name: "Zoom | Ubuntu Import Zoom GPG key for repo (Ubuntu)"
+  ansible.builtin.apt_key:
+    url: "{{ zoom_gpg_key_url }}"
+    state: present
+  tags:
+    - install
+    - zoom
+
+- name: "Zoom | Ubuntu | Download Zoom DEB"
+  become: true
+  ansible.builtin.get_url:
+    url: "{{ zoom_deb_url }}"
+    dest: "{{ zoom_deb_path }}"
+    mode: '0644'
+  tags:
+    - install
+    - zoom
+
+- name: "Zoom | Ubuntu | Install Zoom DEB"
+  become: true
+  ansible.builtin.apt:
+    name: "{{ zoom_deb_path }}"
+    state: present
+  tags:
+    - install
+    - zoom
+
+- name: "Zoom | Ubuntu | Cleanup downloaded installer"
+  become: true
+  ansible.builtin.file:
+    path: "{{ zoom_deb_path }}"
+    state: absent
+  tags:
+    - install
+    - zoom
+    - cleanup

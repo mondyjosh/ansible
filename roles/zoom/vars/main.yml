@@ -1,0 +1,7 @@
+zoom_gpg_key_url: "https://zoom.us/linux/download/pubkey"
+
+zoom_rpm_url: "https://zoom.us/client/latest/zoom_x86_64.rpm"
+zoom_rpm_path: "/tmp/zoom_x86_64.rpm"
+
+zoom_deb_url: "https://zoom.us/client/latest/zoom_amd64.deb"
+zoom_deb_path: "/tmp/zoom_amd64.deb"

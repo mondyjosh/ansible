@@ -3,30 +3,11 @@
   hosts: localhost
   connection: local
 
-  # vars_prompt:
-  #   - name: include_playstation_roles
-  #     prompt: Include playstation roles [yes/no]
-
-
-
   pre_tasks:
     - name: "Execute Pre-Tasks"
       ansible.builtin.include_tasks: pre_tasks/main.yml
 
   tasks:
-    - name: "Record start time"
-      ansible.builtin.shell: date +%s
-      register: play_start_ts
-      tags:
-        - always
-        
-    # - name: "Set roles - {{ include_playstation_roles|bool | ternary('🕹️ Play Mode', '👔 Business Mode ') }}"
-    #   ansible.builtin.set_fact:
-    #     run_roles: "{{ ansible_run_tags != ['all'] and ansible_run_tags or include_playstation_roles|bool | ternary(workstation_roles + playstation_roles, workstation_roles)  | difference(exclude_roles | default([])) }}"
-    #   tags:
-    #     - always
-    #     - workstation
-
     - name: "Set roles - 👔 Workstation"
       ansible.builtin.set_fact:
         run_roles: "{{ workstation_roles }}"
@@ -53,32 +34,3 @@
       tags:
         - always
         - workstation
-
-    - name: "Record end time"
-      ansible.builtin.shell: date +%s
-      register: play_end_ts
-      tags:
-        - always
-
-    - name: Calculate runtime seconds
-      ansible.builtin.set_fact:
-        runtime_seconds: "{{ (play_end_ts.stdout | int) - (play_start_ts.stdout | int) }}"
-      tags: 
-        - always
-
-    - name: Format runtime as HH:MM:SS
-      ansible.builtin.set_fact:
-        runtime_formatted: >-
-          {{ '%02d:%02d:%02d' | format(
-              (runtime_seconds | int // 3600),
-              (runtime_seconds | int // 60) % 60,
-              (runtime_seconds | int % 60)
-          ) }}
-      tags: 
-      - always
-
-    - name: "Show total runtime"
-      ansible.builtin.debug:
-        msg: "Total playbook runtime: {{ runtime_formatted }}"
-      tags:
-        - always

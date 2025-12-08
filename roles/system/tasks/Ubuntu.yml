@@ -1,4 +1,4 @@
-- name: "System | {{ ansible_distribution }} | Install System Packages"
+- name: "System | Ubuntu | Install System Packages"
   become: true
   ansible.builtin.apt:
     name:
@@ -28,7 +28,7 @@
     - install
     - system
 
-- name: "System | {{ ansible_distribution }} | Install Productivity Tools"
+- name: "System | Ubuntu | Install Productivity Tools"
   become: true
   ansible.builtin.apt:
     name:

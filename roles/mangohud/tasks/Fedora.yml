@@ -1,4 +1,4 @@
-- name: "MangoHud | {{ ansible_distribution }} | Install MangoHud"
+- name: "MangoHud | Fedora | Install MangoHud"
   ansible.builtin.dnf:
     name:
       - mangohud

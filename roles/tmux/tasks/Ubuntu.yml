@@ -1,4 +1,4 @@
-- name: "tmux | {{ ansible_distribution }} | Install tmux"
+- name: "tmux | Ubuntu | Install tmux"
   become: true
   ansible.builtin.apt:
     name:

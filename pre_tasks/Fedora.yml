@@ -1,11 +1,11 @@
-- name: "Pre-Tasks | {{ ansible_distribution }} | Update Cache"
+- name: "Pre-Tasks | Fedora | Update Cache"
   ansible.builtin.dnf:
     update_cache: true
   become: true
   tags:
     - system
 
-- name: "Flatpak | {{ ansible_distribution }} | Flatpak - Flatpak"
+- name: "Flatpak | Fedora | Flatpak - Flatpak"
   ansible.builtin.dnf:
     name: flatpak
     state: present

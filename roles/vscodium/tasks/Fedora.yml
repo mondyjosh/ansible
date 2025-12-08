@@ -1,0 +1,37 @@
+- name: "Zoom | Fedora | Import Zoom GPG key"
+  become: true
+  ansible.builtin.rpm_key:
+    state: present
+    key: "{{ zoom_gpg_key_url }}"
+  tags:
+    - install
+    - zoom
+
+- name: "Zoom | Fedora | Download Zoom RPM"
+  become: true
+  ansible.builtin.get_url:
+    url: "{{ zoom_rpm_url }}"
+    dest: "{{ zoom_rpm_path }}"
+    mode: '0644'
+  tags:
+    - install
+    - zoom
+
+- name: "Zoom | Fedora | Install Zoom RPM"
+  become: true
+  ansible.builtin.dnf:
+    name: "{{ zoom_rpm_path }}"
+    state: present
+  tags:
+    - install
+    - zoom
+
+- name: "Zoom | Fedora | Cleanup downloaded installer"
+  become: true
+  ansible.builtin.file:
+    path: "{{ zoom_rpm_path }}"
+    state: absent
+  tags:
+    - install
+    - zoom
+    - cleanup

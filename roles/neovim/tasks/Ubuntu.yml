@@ -1,4 +1,4 @@
-- name: "Neovim | {{ ansible_distribution }} | Install Build Prerequisites"
+- name: "Neovim | Ubuntu | Install Build Prerequisites"
   become: true
   ansible.builtin.apt:
     name:
@@ -13,7 +13,7 @@
     - install
     - neovim
 
-- name: "Neovim | {{ ansible_distribution }} | Install LazyVim Dependencies"
+- name: "Neovim | Ubuntu | Install LazyVim Dependencies"
   become: true
   ansible.builtin.apt:
     name:
@@ -27,7 +27,7 @@
     - neovim
     - neovim_lazyvim
 
-- name: "Neovim | {{ ansible_distribution }} | Install Plugin Development Dependencies"
+- name: "Neovim | Ubuntu | Install Plugin Development Dependencies"
   become: true
   ansible.builtin.apt:
     name: luarocks

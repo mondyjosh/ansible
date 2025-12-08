@@ -1,9 +1,9 @@
-- name: "fastfetch | {{ ansible_distribution }} | Add fastfetch PPA"
+- name: "fastfetch | Ubuntu | Add fastfetch PPA"
   become: true
   ansible.builtin.apt_repository:
     repo: ppa:zhangsongcui3371/fastfetch
 
-- name: "fastfetch | {{ ansible_distribution }} | Install fastfetch"
+- name: "fastfetch | Ubuntu | Install fastfetch"
   become: true
   ansible.builtin.apt:
     name:

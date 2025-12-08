@@ -1,4 +1,4 @@
-- name: "Node | {{ ansible_distribution }} | Install Node Dependencies"
+- name: "Node | Fedora | Install Node Dependencies"
   ansible.builtin.dnf:
     name:
       - node

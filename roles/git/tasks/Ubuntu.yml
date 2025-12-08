@@ -1,4 +1,4 @@
-- name: "Git | {{ ansible_distribution }} | Install git"
+- name: "Git | Ubuntu | Install git"
   ansible.builtin.apt:
     name:
       - git

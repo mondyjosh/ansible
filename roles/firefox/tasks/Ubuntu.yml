@@ -1,4 +1,4 @@
-- name: "Firefox | {{ ansible_distribution }} | Install Firefox"
+- name: "Firefox | Ubuntu | Install Firefox"
   become: true
   ansible.builtin.apt:
     name:

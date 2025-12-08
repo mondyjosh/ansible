@@ -1,4 +1,4 @@
-- name: "fastfetch | {{ ansible_distribution }} | Install fastfetch"
+- name: "fastfetch | Fedora | Install fastfetch"
   become: true
   ansible.builtin.dnf:
     name:

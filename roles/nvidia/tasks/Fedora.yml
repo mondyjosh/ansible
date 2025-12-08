@@ -1,4 +1,4 @@
-#- name: "NVIDIA | {{ ansible_distribution }} | Install NVIDIA Drivers"
+#- name: "NVIDIA | Fedora | Install NVIDIA Drivers"
 #  become: true
 #  ansible.builtin.dnf:
 #    name:

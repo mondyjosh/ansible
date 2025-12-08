@@ -1,4 +1,4 @@
-- name: "OneDrive | {{ ansible_distribution }} | Install onedrive"
+- name: "OneDrive | Ubuntu | Install onedrive"
   become: true
   ansible.builtin.apt:
     name:

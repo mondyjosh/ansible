@@ -1,4 +1,4 @@
-- name: "sway | {{ ansible_distribution }} | Install sway"
+- name: "sway | Ubuntu | Install sway"
   become: true
   ansible.builtin.apt:
     name:

@@ -1,8 +1,8 @@
-- name: "Firefox | {{ ansible_distribution }} | Install Firefox"
+- name: "Firefox | Fedora | Install Firefox"
   become: true
   ansible.builtin.dnf:
     name:
-      - firefox 
+      - firefox
   tags:
     - install
     - firefox

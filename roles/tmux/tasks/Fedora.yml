@@ -1,4 +1,4 @@
-- name: "tmux | {{ ansible_distribution }} | Install tmux"
+- name: "tmux | Fedora | Install tmux"
   become: true
   ansible.builtin.dnf:
     name:

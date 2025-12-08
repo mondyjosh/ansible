@@ -1,10 +1,10 @@
-- name: "Lazygit | {{ ansible_distribution }} | Enable Copr"
+- name: "Lazygit | Fedora | Enable Copr"
   shell: sudo dnf copr enable atim/lazygit -y
   tags:
     - lazygit
     - install
 
-- name: "Lazygit | {{ ansible_distribution }} | Install lazygit"
+- name: "Lazygit | Fedora | Install lazygit"
   ansible.builtin.dnf:
     name:
       - lazygit

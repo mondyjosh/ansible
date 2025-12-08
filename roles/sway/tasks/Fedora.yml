@@ -1,4 +1,4 @@
-- name: "sway | {{ ansible_distribution }} | Install sway"
+- name: "sway | Fedora | Install sway"
   become: true
   ansible.builtin.dnf:
     name:

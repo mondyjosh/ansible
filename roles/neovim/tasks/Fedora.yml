@@ -1,4 +1,4 @@
-- name: "Neovim | {{ ansible_distribution }} | Install Build Dependencies"
+- name: "Neovim | Fedora | Install Build Dependencies"
   become: true
   ansible.builtin.dnf:
     name:
@@ -15,7 +15,7 @@
     - install
     - neovim
 
-- name: "Neovim | {{ ansible_distribution }} | Install LazyVim Dependencies"
+- name: "Neovim | Fedora | Install LazyVim Dependencies"
   become: true
   ansible.builtin.dnf:
     name:
@@ -29,7 +29,7 @@
     - neovim
     - neovim_lazyvim
 
-- name: "Neovim | {{ ansible_distribution }} | Install Plugin Development Dependencies"
+- name: "Neovim | Fedora | Install Plugin Development Dependencies"
   become: true
   ansible.builtin.dnf:
     name: luarocks

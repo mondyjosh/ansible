@@ -3,45 +3,37 @@
   hosts: localhost
   connection: local
 
-  # vars_prompt:
-  #   - name: include_playstation_roles
-  #     prompt: Include playstation roles [yes/no]
-
-
-
   pre_tasks:
+    - name: "Metrics | Record playbook start time 🟢"
+      set_fact:
+        playbook_started_at: "{{ ansible_date_time.iso8601 }}"
+      tags: [always, metrics]
+
     - name: "Execute Pre-Tasks"
       ansible.builtin.include_tasks: pre_tasks/main.yml
 
   tasks:
-    - name: "Record start time"
-      ansible.builtin.shell: date +%s
-      register: play_start_ts
-      tags:
-        - always
-        
-    # - name: "Set roles - {{ include_playstation_roles|bool | ternary('🕹️ Play Mode', '👔 Business Mode ') }}"
-    #   ansible.builtin.set_fact:
-    #     run_roles: "{{ ansible_run_tags != ['all'] and ansible_run_tags or include_playstation_roles|bool | ternary(workstation_roles + playstation_roles, workstation_roles)  | difference(exclude_roles | default([])) }}"
-    #   tags:
-    #     - always
-    #     - workstation
-
-    - name: "Set roles - 👔 Workstation"
+    - name: "Include roles - 🌱 Minimum"
       ansible.builtin.set_fact:
-        run_roles: "{{ workstation_roles }}"
-      tags:
-        - always
-        - workstation
+        run_roles: "{{ minimum_roles }}"
+      tags: [always, minimum-roles]
+
+    # - name: "Include roles - 💼 Workstation"
+    #   ansible.builtin.set_fact:
+    #     run_roles: "{{ (run_roles | default([])) + workstation_roles }}"
+    #   tags: [workstation-roles]
+
+    # - name: "Include roles - 💼 Playstation"
+    #   ansible.builtin.set_fact:
+    #     run_roles: "{{ (run_roles | default([])) + playstation_roles }}"
+    #   tags: [playstation-roles]
 
     - name: "Display roles"
       ansible.builtin.debug:
         var: run_roles
-      tags:
-        - always
-        - workstation
+      tags: [always]
 
-    - name: "Run roles"
+    - name: "Execute roles"
       ansible.builtin.include_role:
         apply:
           tags:
@@ -49,36 +41,37 @@
         name: "{{ roles_item }}"
       loop_control:
         loop_var: roles_item
-      with_items: "{{ run_roles }}"
-      tags:
-        - always
-        - workstation
+      loop: "{{ run_roles }}"
+      tags: [always]
 
-    - name: "Record end time"
-      ansible.builtin.shell: date +%s
-      register: play_end_ts
-      tags:
-        - always
+    - name: "Simulate work"
+      ansible.builtin.pause:
+        seconds: 5
+      tags: [always]
 
-    - name: Calculate runtime seconds
-      ansible.builtin.set_fact:
-        runtime_seconds: "{{ (play_end_ts.stdout | int) - (play_start_ts.stdout | int) }}"
-      tags: 
-        - always
+  # post_tasks:
+  ## TODO: Fix
+    # - name: "Metrics | Record playbook end time 🔴"
+    #   ansible.builtin.set_fact:
+    #     playbook_ended_at: "{{ lookup('pipe', 'date +%Y-%m-%dT%H:%M:%S') }}"
+    #   tags: [always, metrics]
 
-    - name: Format runtime as HH:MM:SS
-      ansible.builtin.set_fact:
-        runtime_formatted: >-
-          {{ '%02d:%02d:%02d' | format(
-              (runtime_seconds | int // 3600),
-              (runtime_seconds | int // 60) % 60,
-              (runtime_seconds | int % 60)
-          ) }}
-      tags: 
-      - always
+    # - name: "Metrics | Compute total runtime in seconds ⏱️"
+    #   ansible.builtin.set_fact:
+    #     playbook_runtime_seconds: "{{ ((playbook_ended_at | to_datetime('%Y-%m-%dT%H:%M:%S')).timestamp() - (playbook_started_at | to_datetime('%Y-%m-%dT%H:%M:%S')).timestamp()) | int }}"
+    #   tags: [always]
 
-    - name: "Show total runtime"
-      ansible.builtin.debug:
-        msg: "Total playbook runtime: {{ runtime_formatted }}"
-      tags:
-        - always
+    # - name: "Metrics | Show total playbook runtime ⌛"
+    #   ansible.builtin.debug:
+    #     msg: |
+    #       Playbook runtime summary:
+    #       Start: {{ playbook_started_at }}
+    #       End:   {{ playbook_ended_at }}
+    #       Total elapsed: {{
+    #         '%02d:%02d:%02d' | format(
+    #           (playbook_runtime_seconds // 3600),
+    #           ((playbook_runtime_seconds // 60) % 60),
+    #           (playbook_runtime_seconds % 60)
+    #         )
+    #       }}
+    #   tags: [always, metrics]

@@ -1,0 +1,29 @@
+## 2025-01-02: Switching from Flatpak to RPM Module on Fedora for a while to show "So-and-so is playing X" via Steam/Spotify. Will update this role if the change sticks.
+
+- name: "Discord | Install"
+  community.general.flatpak:
+    name: com.discordapp.Discord
+    state: present
+  tags:
+    - discord
+    - flatpak
+    - install
+
+
+# - name: Download Discord .deb
+#   get_url:
+#     url: "https://discord.com/api/download?platform=linux&format=deb"
+#     dest: "/tmp/discord.deb"
+#     mode: "0644"
+
+# - name: Install Discord .deb
+#   apt:
+#     deb: "/tmp/discord.deb"
+#     state: present
+
+# - name: Clean up
+#   file:
+#     path: "/tmp/discord.deb"
+#     state: absent
+
+# sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm

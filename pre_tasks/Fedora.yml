@@ -5,11 +5,11 @@
   tags:
     - system
 
-- name: "Flatpak | {{ ansible_distribution }} | Flatpak - Flatpak"
-  ansible.builtin.dnf:
-    name: flatpak
-    state: present
-  become: true
-  tags:
-    - install
-    - flatpak
+# - name: "Flatpak | {{ ansible_distribution }} | Flatpak - Flatpak"
+#   ansible.builtin.dnf:
+#     name: flatpak
+#     state: present
+#   become: true
+#   tags:
+#     - install
+#     - flatpak

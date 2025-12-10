@@ -1,43 +1,49 @@
-workstation_roles:
-  # - android/adb # TODO
-  # - alacritty
-  # - dotnet # TODO
-  # - gh # TODO
-  - lazygit
-  - neovim
-  # - node
-  # - rust # TODO
-  - zsh
-
-  ### Success!
-  - system
-  - fonts
-  - fastfetch
-  - firefox
-  - flameshot
-  - gimp
-  - git
-  - kdenlive
-  - keepassxc
-  - obsidian
-  - onedrive
-  - postman
-  - slack
-  - spotify
-  - sway
-  - thunderbird
-  - tmux
-  - wireshark
-  - zoom
-
-
-playstation_roles:
-  - discord
-  - mangohud
-  # - phoronix # TODO (don't forget to install PHP)
-  - signal
-  - steam
-
 github_username: mondyjosh
 
 ssh_key: "~/.ssh/id_ed25519"
+
+minimum_roles:
+  - system
+#   - fonts
+#   - fastfetch
+#   - firefox
+#   - git
+#   - lazygit
+#   - neovim
+#   # - wezterm # TODO
+#   - zsh
+
+# # dotnet_roles:
+# # - dotnet # TODO
+
+# workstation_roles:
+#   # - android/adb # TODO
+#   # - alacritty
+#   # - gh # TODO
+#   - lazygit
+#   # - node
+#   # - rust # TODO
+#   - zsh
+
+#   ### Success!
+#   - flameshot
+#   - gimp
+#   - kdenlive
+#   - keepassxc
+#   - obsidian
+#   - onedrive
+#   - postman
+#   - slack
+#   - spotify
+#   - sway
+#   - thunderbird
+#   - wireshark
+#   - zoom
+
+# playstation_roles:
+#   - discord
+#   - mangohud
+#   # - phoronix # TODO (don't forget to install PHP)
+#   - signal
+#   - steam
+

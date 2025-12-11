@@ -1,8 +1,8 @@
-- name: "Slack | Install"
-  community.general.flatpak:
-    name: com.slack.Slack
-    state: present
-  tags:
-    - flatpak
-    - install
-    - slack
+# - name: "Slack | Install"
+#   community.general.flatpak:
+#     name: com.slack.Slack
+#     state: present
+#   tags:
+#     - flatpak
+#     - install
+#     - slack

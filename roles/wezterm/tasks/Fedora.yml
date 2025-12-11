@@ -1,0 +1,11 @@
+# If you want nightly build, then replace wezterm by wezterm-nightly
+# The nightly build conflicts with the regular build,
+# so you may install one or the other, but not both at the same time.
+- name: "WezTerm | Fedora | Install WezTerm"
+  become: true
+  ansible.builtin.dnf:
+    name: wezterm
+    state: latest
+  tags:
+    - install
+    - wezterm

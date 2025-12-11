@@ -1,11 +1,11 @@
-# 2025-01-02: Switching from Flatpak to RPM Module on Fedora for a while to show "So-and-so is playing X" via Steam/Spotify.
-# Will update this role permanently if the change sticks.
+# # 2025-01-02: Switching from Flatpak to RPM Module on Fedora for a while to show "So-and-so is playing X" via Steam/Spotify.
+# # Will update this role permanently if the change sticks.
 
-- name: "Spotify | Install"
-  community.general.flatpak:
-    name: com.spotify.Client
-    state: present
-  tags:
-    - flatpak
-    - install
-    - spotify
+# - name: "Spotify | Install"
+#   community.general.flatpak:
+#     name: com.spotify.Client
+#     state: present
+#   tags:
+#     - flatpak
+#     - install
+#     - spotify

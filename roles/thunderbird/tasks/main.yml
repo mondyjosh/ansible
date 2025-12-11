@@ -1,8 +1,8 @@
-- name: "Thunderbird | Install"
-  community.general.flatpak:
-    name: org.mozilla.Thunderbird
-    state: present
-  tags:
-    - flatpak
-    - install
-    - thunderbird
+# - name: "Thunderbird | Install"
+#   community.general.flatpak:
+#     name: org.mozilla.Thunderbird
+#     state: present
+#   tags:
+#     - flatpak
+#     - install
+#     - thunderbird

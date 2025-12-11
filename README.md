@@ -20,7 +20,7 @@ After building the Docker images, use `docker run --rm -it <tag_name> bash` to i
 
 ## Configuration
 
-Configuration is provided via [my dotfiles repository](https://github.com/mondyjosh/dotfiles).
+Configuration is provided via [my dotfiles repo](https://github.com/mondyjosh/dotfiles).
 
 ## References
 

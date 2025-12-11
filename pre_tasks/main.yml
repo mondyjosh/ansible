@@ -11,16 +11,5 @@
   tags:
     - pre-tasks
 
-- name: "Flatpak | Add Flathub Repository"
-  community.general.flatpak_remote:
-    name: flathub
-    state: present
-    flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
-  tags:
-    - flatpak
-    - flathub
-    - pre-tasks
-    - repos
-
 - name: "SSH | Add SSH Key to SSH Agent"
   shell: ssh-add ~/.ssh/id_ed25519

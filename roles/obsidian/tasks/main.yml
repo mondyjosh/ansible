@@ -1,8 +1,8 @@
-- name: "Obsidian | Install"
-  community.general.flatpak:
-    name: md.obsidian.Obsidian
-    state: present
-  tags:
-    - flatpak
-    - install
-    - obsidian
+# - name: "Obsidian | Install"
+#   community.general.flatpak:
+#     name: md.obsidian.Obsidian
+#     state: present
+#   tags:
+#     - flatpak
+#     - install
+#     - obsidian

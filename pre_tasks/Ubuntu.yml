@@ -4,20 +4,3 @@
   become: true
   tags:
     - system
-
-- name: "Flatpak | Ubuntu | Flatpak - Flatpak"
-  ansible.builtin.apt:
-    name: flatpak
-    state: present
-  become: true
-  tags:
-    - install
-    - flatpak
-
-- name: "Flatpak | Ubuntu | Install Software Plugin"
-  ansible.builtin.apt:
-    name: gnome-software-plugin-flatpak
-    state: present
-  tags:
-    - flatpak
-    - plugin

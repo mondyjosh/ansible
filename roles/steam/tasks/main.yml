@@ -1,11 +1,11 @@
-# 2025-01-02: Switching from Flatpak to RPM Module on Fedora for a while to determine if driver issues resolve.
-#             Will update this role permanently if the change sticks.
+# # 2025-01-02: Switching from Flatpak to RPM Module on Fedora for a while to determine if driver issues resolve.
+# #             Will update this role permanently if the change sticks.
 
-- name: "Steam | Install"
-  community.general.flatpak:
-    name: com.valvesoftware.Steam
-    state: present
-  tags:
-    - flatpak
-    - install
-    - steam
+# - name: "Steam | Install"
+#   community.general.flatpak:
+#     name: com.valvesoftware.Steam
+#     state: present
+#   tags:
+#     - flatpak
+#     - install
+#     - steam

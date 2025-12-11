@@ -1,43 +1,44 @@
-workstation_roles:
-  # - android/adb # TODO
-  # - alacritty
-  # - dotnet # TODO
-  # - gh # TODO
+github_username: mondyjosh
+ssh_key: "~/.ssh/id_ed25519"
+
+minimum_roles:
+  - system
+  - fastfetch
+  - fonts
+  - git
   - lazygit
   - neovim
-  # - node
-  # - rust # TODO
+  - wezterm
   - zsh
+  # - gh # TODO
 
-  ### Success!
-  - system
-  - fonts
-  - fastfetch
+workstation_roles:
   - firefox
-  - flameshot
-  - gimp
-  - git
-  - kdenlive
-  - keepassxc
-  - obsidian
   - onedrive
-  - postman
-  - slack
-  - spotify
   - sway
-  - thunderbird
   - tmux
-  - wireshark
+  - vscodium
   - zoom
-
+  # - dotnet # TODO
+  # - flameshot # TODO: Use package instead of Flatpak
+  # - gimp # TODO: Use package instead of Flatpak
+  # - golang # TODO
+  # - kdenlive # TODO: Use package instead of Flatpak
+  # - keepassxc # TODO: Use package instead of Flatpak
+  # - node # TODO
+  # - obsidian  # TODO: Use package instead of Flatpak # TODO: Consider logseq as FOSS alternative
+  # - postman # TODO: Use package instead of Flatpak # TODO: Find TUI FOSS alternative
+  # - rust # TODO
+  # - slack # TODO: Use package instead of Flatpak
+  # - spotify # TODO: Use package instead of Flatpak
+  # - thunderbird # TODO: Use package instead of Flatpak
+  # - wireshark # TODO: Use package instead of Flatpak
 
 playstation_roles:
-  - discord
   - mangohud
+  # - audacity # TODO
+  # - discord # TODO: Use package instead of Flatpak
   # - phoronix # TODO (don't forget to install PHP)
-  - signal
-  - steam
+  # - signal
+  # - steam # TODO: Use package instead of Flatpak
 
-github_username: mondyjosh
-
-ssh_key: "~/.ssh/id_ed25519"

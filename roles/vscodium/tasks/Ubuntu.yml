@@ -1,36 +1,43 @@
-- name: "Zoom | Ubuntu Import Zoom GPG key for repo (Ubuntu)"
-  ansible.builtin.apt_key:
-    url: "{{ zoom_gpg_key_url }}"
-    state: present
+- name: "VSCodium | Ubuntu | Download VSCodium GPG key and convert to keyring"
+  shell: |
+    wget -qO - {{ vscodium_gpg_key_url }} \
+      | gpg --dearmor > {{ vscodium_keyring_path }}
+  args:
+    creates: "{{ vscodium_keyring_path }}"
   tags:
     - install
-    - zoom
+    - vscodium
 
-- name: "Zoom | Ubuntu | Download Zoom DEB"
+- name: "VSCodium | Ubuntu | Add VSCodium repo"
   become: true
-  ansible.builtin.get_url:
-    url: "{{ zoom_deb_url }}"
-    dest: "{{ zoom_deb_path }}"
+  copy:
+    dest: /etc/apt/sources.list.d/vscodium.sources
     mode: '0644'
+    content: |
+      Types: deb
+      URIs: https://download.vscodium.com/debs
+      Suites: vscodium
+      Components: main
+      Architectures: amd64 arm64
+      Signed-By: {{ vscodium_keyring_path }}
   tags:
     - install
-    - zoom
+    - vscodium
 
-- name: "Zoom | Ubuntu | Install Zoom DEB"
+- name: "VSCodium | Ubuntu | Update apt cache"
   become: true
   ansible.builtin.apt:
-    name: "{{ zoom_deb_path }}"
-    state: present
+    update_cache: yes
   tags:
     - install
-    - zoom
+    - vscodium
 
-- name: "Zoom | Ubuntu | Cleanup downloaded installer"
+# If you want vscodium-insiders, then replace codium by codium-insiders
+- name: "VSCodium | Ubuntu | Install VSCodium"
   become: true
-  ansible.builtin.file:
-    path: "{{ zoom_deb_path }}"
-    state: absent
+  ansible.builtin.apt:
+    name: codium
+    state: latest
   tags:
     - install
-    - zoom
-    - cleanup
+    - vscodium

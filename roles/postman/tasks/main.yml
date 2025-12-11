@@ -1,8 +1,8 @@
-- name: "Postman | Install"
-  community.general.flatpak:
-    name: com.getpostman.Postman
-    state: present
-  tags:
-    - flatpak
-    - install
-    - postman
+# - name: "Postman | Install"
+#   community.general.flatpak:
+#     name: com.getpostman.Postman
+#     state: present
+#   tags:
+#     - flatpak
+#     - install
+#     - postman

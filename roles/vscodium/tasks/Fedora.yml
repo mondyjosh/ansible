@@ -1,37 +1,27 @@
-- name: "Zoom | Fedora | Import Zoom GPG key"
+- name: "VSCodium | Fedora | Add VSCodium RPM repo"
   become: true
-  ansible.builtin.rpm_key:
-    state: present
-    key: "{{ zoom_gpg_key_url }}"
-  tags:
-    - install
-    - zoom
-
-- name: "Zoom | Fedora | Download Zoom RPM"
-  become: true
-  ansible.builtin.get_url:
-    url: "{{ zoom_rpm_url }}"
-    dest: "{{ zoom_rpm_path }}"
+  copy:
+    dest: /etc/yum.repos.d/vscodium.repo
     mode: '0644'
+    content: |
+      [gitlab.com_paulcarroty_vscodium_repo]
+      name=gitlab.com_paulcarroty_vscodium_repo
+      baseurl=https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/rpms/
+      enabled=1
+      gpgcheck=1
+      repo_gpgcheck=1
+      gpgkey={{ vscodium_gpg_key_url }}
+      metadata_expire=1h
   tags:
     - install
-    - zoom
+    - vscodium
 
-- name: "Zoom | Fedora | Install Zoom RPM"
+# If you want vscodium-insiders, then replace codium by codium-insiders
+- name: "VSCodium | Fedora | Install VSCodium"
   become: true
-  ansible.builtin.dnf:
-    name: "{{ zoom_rpm_path }}"
-    state: present
+  dnf:
+    name: codium
+    state: latest
   tags:
     - install
-    - zoom
-
-- name: "Zoom | Fedora | Cleanup downloaded installer"
-  become: true
-  ansible.builtin.file:
-    path: "{{ zoom_rpm_path }}"
-    state: absent
-  tags:
-    - install
-    - zoom
-    - cleanup
+    - vscodium

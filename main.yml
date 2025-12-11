@@ -8,19 +8,26 @@
       ansible.builtin.include_tasks: pre_tasks/main.yml
 
   tasks:
-    - name: "Set roles - 👔 Workstation"
+    # TODO: Set up multiple playbooks (minimum/workstation/playstation)?
+    # - name: "Include roles - 👔 Workstation"
+    #   ansible.builtin.set_fact:
+    #     run_roles: "{{ workstation_roles }}"
+    #   tags:
+    #     - always
+    #     - workstation
+
+    - name: "Include roles - 🌱 Minimum"
       ansible.builtin.set_fact:
-        run_roles: "{{ workstation_roles }}"
+        run_roles: "{{ minimum_roles }}"
       tags:
         - always
-        - workstation
+        - minimum
 
     - name: "Display roles"
       ansible.builtin.debug:
         var: run_roles
       tags:
         - always
-        - workstation
 
     - name: "Run roles"
       ansible.builtin.include_role:
@@ -33,4 +40,3 @@
       with_items: "{{ run_roles }}"
       tags:
         - always
-        - workstation

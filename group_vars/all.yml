@@ -10,7 +10,7 @@ minimum_roles:
   - neovim
   - wezterm
   - zsh
-  # - gh # TODO
+  - gh
 
 workstation_roles:
   - firefox

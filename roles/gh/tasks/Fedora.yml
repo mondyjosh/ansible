@@ -1,0 +1,8 @@
+- name: "gh | Fedora | Install GitHub CLI"
+  become: true
+  ansible.builtin.dnf:
+    name:
+      - gh
+  tags:
+    - gh
+    - install

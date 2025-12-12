@@ -5,8 +5,8 @@
     state: present
 
 - name: "Pre-Tasks | Fedora | Update Cache"
+  become: true
   ansible.builtin.dnf:
     update_cache: true
-  become: true
   tags:
     - system

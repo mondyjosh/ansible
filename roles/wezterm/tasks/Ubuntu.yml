@@ -8,7 +8,7 @@
     - install
     - wezterm
 
-- name: Ensure correct permissions on keyring
+- name: "WezTerm | Ubuntu | Ensure correct permissions on keyring"
   file:
     path: "{{ wezterm_keyring }}"
     mode: '0644'

@@ -1,0 +1,14 @@
+- name: "gh | Set Distribution Config: {{ ansible_distribution }}"
+  ansible.builtin.stat:
+    path: "{{ role_path }}/tasks/{{ ansible_distribution }}.yml"
+  register: gh_distribution_config
+  tags:
+    - gh
+
+- name: "gh | {{ansible_distribution}} | Run Tasks"
+  ansible.builtin.include_tasks: "{{ ansible_distribution }}.yml"
+  when: gh_distribution_config.stat.exists
+  tags:
+    - gh
+    - install
+

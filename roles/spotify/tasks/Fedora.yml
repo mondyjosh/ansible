@@ -1,0 +1,9 @@
+- name: "Spotify | Fedora | Install Spotify"
+  become: true
+  ansible.builtin.dnf:
+    name:
+      - lpf-spotify-client
+    state: present
+  tags:
+    - install
+    - spotify

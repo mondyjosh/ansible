@@ -9,19 +9,27 @@
 
   tasks:
     # TODO: Set up multiple playbooks (minimum/workstation/playstation)?
-    # - name: "Include roles - 👔 Workstation"
-    #   ansible.builtin.set_fact:
-    #     run_roles: "{{ workstation_roles }}"
-    #   tags:
-    #     - always
-    #     - workstation
-
     - name: "Include roles - 🌱 Minimum"
       ansible.builtin.set_fact:
         run_roles: "{{ minimum_roles }}"
       tags:
         - always
         - minimum
+
+    - name: "Include roles - 👔 Workstation"
+      ansible.builtin.set_fact:
+        run_roles: "{{ minimum_roles + workstation_roles }}"
+      tags:
+        - always
+        - workstation
+
+    # TODO: Set up multiple playbooks (minimum/workstation/playstation)?
+    - name: "Include roles - 🕹️ Personal"
+      ansible.builtin.set_fact:
+        run_roles: "{{ minimum_roles + workstation_roles + personal_roles }}"
+      tags:
+        - always
+        - workstation
 
     - name: "Display roles"
       ansible.builtin.debug:

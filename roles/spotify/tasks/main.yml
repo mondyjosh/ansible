@@ -1,11 +1,14 @@
-# # 2025-01-02: Switching from Flatpak to RPM Module on Fedora for a while to show "So-and-so is playing X" via Steam/Spotify.
-# # Will update this role permanently if the change sticks.
+- name: "Spotify | Set Distribution Config: {{ ansible_distribution }}"
+  ansible.builtin.stat:
+    path: "{{ role_path }}/tasks/{{ ansible_distribution }}.yml"
+  register: spotify_distribution_config
+  tags:
+    - spotify
 
-# - name: "Spotify | Install"
-#   community.general.flatpak:
-#     name: com.spotify.Client
-#     state: present
-#   tags:
-#     - flatpak
-#     - install
-#     - spotify
+- name: "Spotify | {{ansible_distribution}} | Run Tasks"
+  ansible.builtin.include_tasks: "{{ ansible_distribution }}.yml"
+  when: spotify_distribution_config.stat.exists
+  tags:
+    - spotify
+    - install
+

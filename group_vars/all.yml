@@ -1,24 +1,29 @@
 github_username: mondyjosh
 ssh_key: "~/.ssh/id_ed25519"
 
+# Baseline CLI environment that can be used everywhere
+# Must be able to run headless; no GUI or hardware assumptions here
 minimum_roles:
-  - system
-  - fastfetch
-  - fonts
-  - git
-  - lazygit
-  - neovim
-  - wezterm
-  - zsh
-  - gh
+  - fastfetch # Fetch system information and display it beautifully
+  - fonts     # Essential fonts for dopamine
+  - gh        # Use GitHub from the CLI
+  - git       # FOSS distributed version control system
+  - lazygit   # Simple TUI for git commands 
+  - neovim    # Hyperextensible Vim-based text editor
+  - system    # Essential system packages and productivity tools
+  - tmux      # Terminal multiplexer
+  - zsh       # Unix shell designed for interactive use
 
+# Daily-driver tooling for a Linux workstation
+# Assumes a graphical session and interactive use
 workstation_roles:
-  - firefox
-  - onedrive
-  - sway
-  - tmux
-  - vscodium
-  - zoom
+  - firefox   # Web browser of choice
+  - onedrive  # Cloud storage
+  - spotify   # Music player
+  - sway      # Tiling window manager and Wayland compositor
+  - vscodium  # Binary releases of VS Code without MS branding/telemetry/licensing
+  - wezterm   # Cross-platform terminal emulator and multiplexer
+  - zoom      # Video conferencing
   # - dotnet # TODO
   # - flameshot # TODO: Use package instead of Flatpak
   # - gimp # TODO: Use package instead of Flatpak
@@ -30,15 +35,15 @@ workstation_roles:
   # - postman # TODO: Use package instead of Flatpak # TODO: Find TUI FOSS alternative
   # - rust # TODO
   # - slack # TODO: Use package instead of Flatpak
-  # - spotify # TODO: Use package instead of Flatpak
   # - thunderbird # TODO: Use package instead of Flatpak
   # - wireshark # TODO: Use package instead of Flatpak
 
-playstation_roles:
-  - mangohud
+# Optional, non-work software for personal machines only
+# Not required for productivity or work
+personal_roles:
+  - discord   # Instant messaging and VoIP social platform
+  - mangohud  # Vulkan and OpenGL overlay for monitoring FPS, CPU/GPU load, etc.
   # - audacity # TODO
-  # - discord # TODO: Use package instead of Flatpak
   # - phoronix # TODO (don't forget to install PHP)
   # - signal
   # - steam # TODO: Use package instead of Flatpak
-

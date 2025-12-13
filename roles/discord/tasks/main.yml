@@ -1,10 +1,13 @@
-## 2025-01-02: Switching from Flatpak to RPM Module on Fedora for a while to show "So-and-so is playing X" via Steam/Spotify. Will update this role if the change sticks.
+- name: "Discord | Set Distribution Config: {{ ansible_distribution }}"
+  ansible.builtin.stat:
+    path: "{{ role_path }}/tasks/{{ ansible_distribution }}.yml"
+  register: discord_config
+  tags:
+    - discord
 
-# - name: "Discord | Install"
-#   community.general.flatpak:
-#     name: com.discordapp.Discord
-#     state: present
-#   tags:
-#     - discord
-#     - flatpak
-#     - install
+- name: "Discord | {{ ansible_distribution }} | Run Tasks"
+  ansible.builtin.include_tasks: "{{ ansible_distribution }}.yml"
+  when: discord_config.stat.exists
+  tags:
+    - install
+    - discord 

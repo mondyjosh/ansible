@@ -1,0 +1,27 @@
+- name: "Discord | Ubuntu | Check if Discord is installed"
+  ansible.builtin.command: dpkg -s discord
+  register: discord_installed
+  failed_when: false
+  changed_when: false
+  tags:
+    - install
+    - discord
+
+- name: "Discord | Ubuntu | Download Discord .deb"
+  ansible.builtin.get_url:
+    url: https://discord.com/api/download?platform=linux&format=deb
+    dest: /tmp/discord.deb
+    mode: '0644'
+  when: discord_installed.rc != 0
+  tags:
+    - install
+    - discord
+
+- name: "Discord | Ubuntu | Install Discord .deb"
+  become: true
+  ansible.builtin.apt:
+    deb: /tmp/discord.deb
+    state: present
+  tags:
+    - install
+    - discord

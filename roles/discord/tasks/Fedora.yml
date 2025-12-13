@@ -1,0 +1,8 @@
+- name: "Discord | Fedora | Install Discord"
+  become: true
+  ansible.builtin.dnf:
+    name:
+      - discord
+  tags:
+    - install
+    - discord

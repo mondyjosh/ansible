@@ -2,7 +2,7 @@
 
 Workstation configuration for mondyjosh, powered by [Ansible](https://docs.ansible.com/)!
 
-This Anisible playbook aids in the rapid setup of local systems I plan on working on.
+This Ansible playbook aids in the rapid setup of local systems I plan on working on.
 
 ## Getting Started
 

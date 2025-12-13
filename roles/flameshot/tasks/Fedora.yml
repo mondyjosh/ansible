@@ -1,0 +1,8 @@
+- name: "Flameshot | Fedora | Install Flameshot"
+  become: true
+  ansible.builtin.dnf:
+    name:
+      - flameshot
+  tags:
+    - install
+    - flameshot

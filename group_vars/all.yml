@@ -1,6 +1,8 @@
 github_username: mondyjosh
 ssh_key: "~/.ssh/id_ed25519"
 
+# TODO: Use FOSS where possible!
+
 # Baseline CLI environment that can be used everywhere
 # Must be able to run headless; no GUI or hardware assumptions here
 minimum_roles:
@@ -14,22 +16,32 @@ minimum_roles:
   - tmux      # Terminal multiplexer
   - zsh       # Unix shell designed for interactive use
 
+# TODO: Split workstation from office stuff (Slack/Thunderbird/etc) from dev stack
+#       This should be granular (RustDev, GoDev, DotnetDev, etc.))
+
+# TODO: Find the following tools:
+# - DB admin GUI like SQL Server Management Studio. Contenders...
+#   - pgAdmin4 - I think this one is nice, will probably try first.
+#   - DBeaver
+#   - DB Browser for SQLite - can this roll up into one of the other ones?
+
 # Daily-driver tooling for a Linux workstation
 # Assumes a graphical session and interactive use
 workstation_roles:
   - firefox   # Web browser of choice
-  - onedrive  # Cloud storage
-  - spotify   # Music player
+  - flameshot # Cross-platform screenshot software
+  - keepassxc # Local/self-hosted password manager # TODO: CLI equivalent for minimum_roles?
+  - onedrive  # Cloud storage # TODO: FOSS self-hosted equivalent
+  - spotify   # Music player # TODO: Alternative that isn't corpo-trash
   - sway      # Tiling window manager and Wayland compositor
   - vscodium  # Binary releases of VS Code without MS branding/telemetry/licensing
   - wezterm   # Cross-platform terminal emulator and multiplexer
   - zoom      # Video conferencing
   # - dotnet # TODO
-  # - flameshot # TODO: Use package instead of Flatpak
+  # - freecad
   # - gimp # TODO: Use package instead of Flatpak
   # - golang # TODO
   # - kdenlive # TODO: Use package instead of Flatpak
-  # - keepassxc # TODO: Use package instead of Flatpak
   # - node # TODO
   # - obsidian  # TODO: Use package instead of Flatpak # TODO: Consider logseq as FOSS alternative
   # - postman # TODO: Use package instead of Flatpak # TODO: Find TUI FOSS alternative
@@ -44,6 +56,9 @@ personal_roles:
   - discord   # Instant messaging and VoIP social platform
   - mangohud  # Vulkan and OpenGL overlay for monitoring FPS, CPU/GPU load, etc.
   # - audacity # TODO
+  # - lutris # TODO
+  # - protonplus # TODO: do I need this to run Hearthstone/Deck Tracker?
   # - phoronix # TODO (don't forget to install PHP)
   # - signal
   # - steam # TODO: Use package instead of Flatpak
+

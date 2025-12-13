@@ -1,0 +1,9 @@
+- name: "KeepassXC | Ubuntu | Install KeePassXC"
+  become: true
+  ansible.builtin.apt:
+    name:
+      - keepassxc
+  tags:
+    - install
+    - keepassxc
+

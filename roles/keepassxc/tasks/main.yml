@@ -1,8 +1,13 @@
-# - name: "KeePassXC | Install"
-#   community.general.flatpak:
-#     name: org.keepassxc.KeePassXC
-#     state: present
-#   tags:
-#     - flatpak
-#     - install
-#     - keepassxc
+- name: "KeePassXC | Set Distribution Config: {{ ansible_distribution }}"
+  ansible.builtin.stat:
+    path: "{{ role_path }}/tasks/{{ ansible_distribution }}.yml"
+  register: keepassxc_distribution_config
+  tags:
+    - keepassxc
+
+- name: "KeePassXC | {{ansible_distribution}} | Run Tasks"
+  ansible.builtin.include_tasks: "{{ ansible_distribution }}.yml"
+  when: keepassxc_distribution_config.stat.exists
+  tags:
+    - install
+    - keepassxc

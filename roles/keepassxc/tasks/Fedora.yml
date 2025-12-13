@@ -1,0 +1,9 @@
+- name: "KeepassXC | Fedora | Install KeePassXC"
+  become: true
+  ansible.builtin.dnf:
+    name:
+      - keepassxc
+  tags:
+    - install
+    - keepassxc
+

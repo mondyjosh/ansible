@@ -42,6 +42,7 @@ workstation_roles:
   # - gimp # TODO: Use package instead of Flatpak
   # - golang # TODO
   # - kdenlive # TODO: Use package instead of Flatpak
+  # - libreoffice # Or whatever is in vogue these days.
   # - node # TODO
   # - obsidian  # TODO: Use package instead of Flatpak # TODO: Consider logseq as FOSS alternative
   # - postman # TODO: Use package instead of Flatpak # TODO: Find TUI FOSS alternative
@@ -53,6 +54,7 @@ workstation_roles:
 # Optional, non-work software for personal machines only
 # Not required for productivity or work
 personal_roles:
+  - discover-overlay
   - discord   # Instant messaging and VoIP social platform
   - mangohud  # Vulkan and OpenGL overlay for monitoring FPS, CPU/GPU load, etc.
   # - audacity # TODO

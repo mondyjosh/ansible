@@ -1,0 +1,17 @@
+- name: "Discover Overlay | Fedora | Enable Copr repo"
+  become: true
+  community.general.copr:
+    name: mavit/discover-overlay
+    state: enabled
+  tags:
+    - discover-overlay
+    - install
+
+- name: "Discover Overlay | Fedora | Install Discover Overlay"
+  become: true
+  ansible.builtin.dnf:
+    name:
+      - discover-overlay
+  tags:
+    - install
+    - discover-overlay

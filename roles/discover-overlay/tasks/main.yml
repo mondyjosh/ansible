@@ -1,0 +1,13 @@
+- name: "Discord | Set Distribution Config: {{ ansible_distribution }}"
+  ansible.builtin.stat:
+    path: "{{ role_path }}/tasks/{{ ansible_distribution }}.yml"
+  register: discord_config
+  tags:
+    - discord
+
+- name: "Discord | {{ ansible_distribution }} | Run Tasks"
+  ansible.builtin.include_tasks: "{{ ansible_distribution }}.yml"
+  when: discord_config.stat.exists
+  tags:
+    - install
+    - discord 

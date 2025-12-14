@@ -6,25 +6,23 @@
   tags:
     - system
 
-- name: "Pre-Tasks | Fedora | Enable RPM Fusion Free Repo"
+- name: "Pre-Tasks | Fedora | Enable RPM Fusion Free repo"
   become: true
   ansible.builtin.dnf:
-    name: >
-      https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_distribution_major_version }}.noarch.rpm
+    name: https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_distribution_major_version }}.noarch.rpm
     state: present
   tags:
     - system
 
-- name: "Pre-Tasks | Fedora | Enable RPM Fusion Nonfree Repo"
+- name: "Pre-Tasks | Fedora | Enable RPM Fusion Nonfree repo"
   become: true
   ansible.builtin.dnf:
-    name: >
-      https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ ansible_distribution_major_version }}.noarch.rpm
+    name: https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ ansible_distribution_major_version }}.noarch.rpm
     state: present
   tags:
     - system
 
-- name: "Pre-Tasks | Fedora | Update Cache"
+- name: "Pre-Tasks | Fedora | Update cache"
   become: true
   ansible.builtin.dnf:
     update_cache: true

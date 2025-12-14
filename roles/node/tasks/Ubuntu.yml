@@ -1,8 +1,0 @@
-- name: "Node | Ubuntu | Install Node Dependencies"
-  ansible.builtin.apt:
-    name:
-      - nodejs
-      - npm
-  tags:
-    - install
-    - node

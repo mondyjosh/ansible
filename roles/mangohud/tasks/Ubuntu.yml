@@ -1,7 +1,0 @@
-- name: "MangoHud | Ubuntu | Install MangoHud"
-  ansible.builtin.apt:
-    name:
-      - mangohud
-  tags:
-    - install
-    - mangohud

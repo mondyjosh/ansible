@@ -3,6 +3,5 @@
 pushd $(dirname $0)/.. >/dev/null
 
 docker build -f test/Dockerfile.fedora -t new-fedora .
-docker build -f test/Dockerfile.ubuntu -t new-ubuntu .
 
 popd >/dev/null

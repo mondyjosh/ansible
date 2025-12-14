@@ -1,8 +1,0 @@
-- name: "sway | Ubuntu | Install sway"
-  become: true
-  ansible.builtin.apt:
-    name:
-      - sway
-  tags:
-    - install
-    - sway

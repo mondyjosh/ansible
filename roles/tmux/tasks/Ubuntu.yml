@@ -1,8 +1,0 @@
-- name: "tmux | Ubuntu | Install tmux"
-  become: true
-  ansible.builtin.apt:
-    name:
-      - tmux
-  tags:
-    - install
-    - tmux

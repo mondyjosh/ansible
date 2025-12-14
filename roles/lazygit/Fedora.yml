@@ -1,5 +1,7 @@
-- name: "Lazygit | Fedora | Enable Copr"
-  shell: sudo dnf copr enable atim/lazygit -y
+- name: "Lazygit | Fedora | Enable Copr repo"
+  community.general.copr:
+    name: atim/lazygit
+    state: enabled
   tags:
     - lazygit
     - install

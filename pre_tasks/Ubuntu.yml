@@ -1,6 +1,0 @@
-- name: "Pre-Tasks | Ubuntu | Update Cache"
-  ansible.builtin.apt:
-    update_cache: true
-  become: true
-  tags:
-    - system

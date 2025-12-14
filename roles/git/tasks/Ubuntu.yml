@@ -1,9 +1,0 @@
-- name: "Git | Ubuntu | Install git"
-  ansible.builtin.apt:
-    name:
-      - git
-    state: present
-  become: true
-  tags:
-    - git
-    - install

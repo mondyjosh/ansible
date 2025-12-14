@@ -1,8 +1,0 @@
-- name: "Firefox | Ubuntu | Install Firefox"
-  become: true
-  ansible.builtin.apt:
-    name:
-      - firefox
-  tags:
-    - install
-    - firefox

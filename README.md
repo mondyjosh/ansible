@@ -10,7 +10,11 @@ Run `./scripts/install-ansible` to ensure that the basic packages (`curl git ans
 
 ## Running the playbook
 
-Run `workstation-setup` to execute the playbook.
+Run `run-playbook` to execute the playbook. Or... If you can remember your Ansible syntax 🤓:
+
+```
+ansible-playbook main.yml -K
+```
 
 ## Testing Playbooks
 

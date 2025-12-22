@@ -51,9 +51,13 @@ workstation_roles:
   # - thunderbird # TODO: Use package instead of Flatpak
   # - wireshark # TODO: Use package instead of Flatpak
 
+iron_wood_roles:
+  - graphics
+
 # Optional, non-work software for personal machines only
 # Not required for productivity or work
 personal_roles:
+  - actual-budget
   - discover-overlay
   - discord   # Instant messaging and VoIP social platform
   - mangohud  # Vulkan and OpenGL overlay for monitoring FPS, CPU/GPU load, etc.

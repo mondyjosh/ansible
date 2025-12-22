@@ -1,0 +1,13 @@
+- name: "Vulkan | Fedora | Install Vulkan Tools"
+  become: true
+  ansible.builtin.dnf:
+    name:
+      - mesa-demos
+      - vulkan-tools
+      - mangohud
+      - radeontop
+      - gamemode
+  tags:
+    - install
+    - gaming
+    - vulkan

@@ -1,0 +1,14 @@
+- name: "Actual Budget | Set Distribution Config: {{ ansible_distribution }}"
+  ansible.builtin.stat:
+    path: "{{ role_path }}/tasks/{{ ansible_distribution }}.yml"
+  register: actual_distribution_config
+  tags:
+    - actual-budget
+
+- name: "Actual Budget | {{ansible_distribution}} | Run Tasks"
+  ansible.builtin.include_tasks: "{{ ansible_distribution }}.yml"
+  when: actual_distribution_config.stat.exists
+  tags:
+    - actual-budget
+    - install
+

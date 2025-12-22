@@ -1,0 +1,9 @@
+- name: "Actual Budget | Fedora | Install Actual Budget Desktop App"
+  become: true
+  community.general.flatpak:
+    name:
+      - actual
+    state: present
+  tags:
+    - install
+    - actual-budget
